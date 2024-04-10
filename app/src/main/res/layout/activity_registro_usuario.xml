@@ -150,7 +150,7 @@
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="390dp"
+                android:layout_width="497dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Registrate" />
