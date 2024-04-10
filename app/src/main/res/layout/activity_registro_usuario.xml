@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="50dp"
         app:icon="@android:drawable/ic_menu_revert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +150,7 @@
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="2dp"
+                android:layout_width="497dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Registrate" />
