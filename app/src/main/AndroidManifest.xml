@@ -31,13 +31,13 @@
             android:name=".MODIFICACION_PLAZA"
             android:exported="false" />
         <activity
-            android:name=".INICIO_SESION"
+            android:name=".ADMIN_HOME"
             android:exported="false" />
         <activity
             android:name=".ALERTA_ADMIN"
             android:exported="false" />
         <activity
-            android:name=".ADMIN_HOME"
+            android:name=".INICIO_SESION"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
