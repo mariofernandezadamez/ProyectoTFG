@@ -7,7 +7,7 @@
     tools:context=".REGISTRO_USUARIO">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/REBtnVolver"
         android:layout_width="55dp"
         android:layout_height="49dp"
         app:icon="@android:drawable/ic_menu_revert"
@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/RETextAparcafacil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="APARCAFACIL "
@@ -53,21 +53,21 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/textView10"
-                android:layout_width="276dp"
+                android:id="@+id/RETextRegistro"
+                android:layout_width="252dp"
                 android:layout_height="match_parent"
-                android:text="REGISTRO USUARIOS"
+                android:text="REGISTRO"
                 android:textSize="20sp" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/RETextDNI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DNI:" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/REEditTextDNI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -75,13 +75,13 @@
             android:text="Name" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/RETextUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Usuario:" />
 
         <EditText
-            android:id="@+id/editTextText3"
+            android:id="@+id/REEditTextUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -89,13 +89,13 @@
             android:text="Name" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/RETextContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Contraseña:" />
 
         <EditText
-            android:id="@+id/editTextText4"
+            android:id="@+id/REEditTextContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -103,13 +103,13 @@
             android:text="Name" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/RETextMatriculaprin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Matricula principal:" />
 
         <EditText
-            android:id="@+id/editTextText5"
+            android:id="@+id/REEditTextMatriculaprin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -117,13 +117,13 @@
             android:text="Name" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/RETextMatriculasecun"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Matricula secundaria(opcional):" />
 
         <EditText
-            android:id="@+id/editTextText6"
+            android:id="@+id/REEditTextMatriculasecun1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -131,7 +131,7 @@
             android:text="Name" />
 
         <EditText
-            android:id="@+id/editTextText7"
+            android:id="@+id/REEditTextMatriculasecun2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -149,7 +149,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/REBtnRegistrate"
                 android:layout_width="16dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
