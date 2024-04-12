@@ -6,70 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".REGISTRO_USUARIO">
 
-    <Button
-        android:id="@+id/REBtnVolver"
-        android:layout_width="55dp"
-        android:layout_height="49dp"
-        app:icon="@android:drawable/ic_menu_revert"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/foto_parkingss">
+    </ImageView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000">
+    </View>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="40dp"
+        android:layout_height="39dp"
+        android:src="@drawable/hacia_atras"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="5dp" />
 
     <TextView
         android:id="@+id/RETextAparcafacil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/flecha_atras"
         android:text="APARCAFACIL "
+        android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintVertical_bias="0.052" />
 
     <LinearLayout
-        android:layout_width="372dp"
-        android:layout_height="453dp"
+        android:layout_width="317dp"
+        android:layout_height="526dp"
+        android:layout_marginTop="70sp"
+        android:background="@color/white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/RETextRegistro"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/RETextRegistro"
-                android:layout_width="252dp"
-                android:layout_height="match_parent"
-                android:text="REGISTRO"
-                android:textSize="20sp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:text="REGISTRO"
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/RETextDNI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="10sp"
             android:text="DNI:" />
 
         <EditText
             android:id="@+id/REEditTextDNI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
@@ -78,12 +84,16 @@
             android:id="@+id/RETextUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:text="Usuario:" />
 
         <EditText
             android:id="@+id/REEditTextUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
@@ -92,12 +102,16 @@
             android:id="@+id/RETextContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:text="Contraseña:" />
 
         <EditText
             android:id="@+id/REEditTextContraseña"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
@@ -106,12 +120,16 @@
             android:id="@+id/RETextMatriculaprin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:text="Matricula principal:" />
 
         <EditText
             android:id="@+id/REEditTextMatriculaprin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
@@ -120,12 +138,16 @@
             android:id="@+id/RETextMatriculasecun"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:text="Matricula secundaria(opcional):" />
 
         <EditText
             android:id="@+id/REEditTextMatriculasecun1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
@@ -134,13 +156,16 @@
             android:id="@+id/REEditTextMatriculasecun2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
             android:ems="10"
             android:inputType="text"
             android:text="Name" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="67dp"
+            android:layout_marginTop="5sp"
             android:orientation="horizontal">
 
             <Space
@@ -150,11 +175,12 @@
 
             <Button
                 android:id="@+id/REBtnRegistrate"
-                android:layout_width="16dp"
-                android:layout_height="match_parent"
+                android:layout_width="191dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Registrate" />
         </LinearLayout>
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
