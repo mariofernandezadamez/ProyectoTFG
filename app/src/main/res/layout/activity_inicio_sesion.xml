@@ -22,21 +22,6 @@
     </View>
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="115dp"
-        android:layout_height="77dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="121dp"
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="124dp"
-        android:layout_weight="1"
-        android:background="@drawable/imagen_ciruclar"
-        android:visibility="visible"
-        tools:srcCompat="@drawable/parking" />
-
     <TextView
         android:id="@+id/ISTextAparcafacil"
         android:layout_width="match_parent"
@@ -57,7 +42,6 @@
         android:layout_marginStart="18dp"
         android:layout_marginLeft="20sp"
         android:layout_marginEnd="19dp"
-        android:layout_marginRight="20sp"
         android:layout_marginBottom="39dp"
         android:background="#FFFFFF"
         android:baselineAligned="false"
@@ -143,10 +127,11 @@
 
             <TextView
                 android:id="@+id/ISTextNoRegistrado"
-                android:layout_width="156dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35sp"
-                android:text="No te has registrado?" />
+                android:layout_marginLeft="10sp"
+                android:text="No te has registrado?"
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -157,14 +142,17 @@
                     android:id="@+id/ISTextRegistrate"
                     android:layout_width="102dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
                     android:text="Registrate"
-                    android:textColor="#0171FA" />
+                    android:textColor="#0171FA"
+                    android:textSize="18sp" />
 
                 <View
                     android:id="@+id/divider3"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginRight="42sp"
+                    android:layout_marginLeft="5sp"
+                    android:layout_marginRight="28sp"
                     android:background="#0171FA"
                     android:backgroundTint="#0171FA" />
             </LinearLayout>
@@ -176,8 +164,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="About us"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="18sp" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="121dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="115sp"
+        android:layout_marginTop="85sp"
+        tools:srcCompat="@drawable/icono_parking" />
 
 </RelativeLayout>
