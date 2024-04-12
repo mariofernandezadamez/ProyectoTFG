@@ -31,8 +31,9 @@
         android:id="@+id/RETextAparcafacil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/black_ops_one"
         android:src="@drawable/flecha_atras"
-        android:text="APARCAFACIL "
+        android:text="REGISTRO"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,22 +55,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/RETextRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10sp"
-            android:text="REGISTRO"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <TextView
             android:id="@+id/RETextDNI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5sp"
             android:layout_marginTop="10sp"
             android:layout_marginRight="5sp"
-            android:text="DNI:" />
+            android:text="DNI:"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/REEditTextDNI"
@@ -89,7 +82,8 @@
             android:layout_marginLeft="5sp"
             android:layout_marginTop="5sp"
             android:layout_marginRight="5sp"
-            android:text="Usuario:" />
+            android:text="Usuario:"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/REEditTextUsuario"
@@ -109,7 +103,8 @@
             android:layout_marginLeft="5sp"
             android:layout_marginTop="5sp"
             android:layout_marginRight="5sp"
-            android:text="Contraseña:" />
+            android:text="Contraseña:"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/REEditTextContraseña"
@@ -129,7 +124,8 @@
             android:layout_marginLeft="5sp"
             android:layout_marginTop="5sp"
             android:layout_marginRight="5sp"
-            android:text="Matricula principal:" />
+            android:text="Matricula principal:"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/REEditTextMatriculaprin"
@@ -149,7 +145,8 @@
             android:layout_marginLeft="5sp"
             android:layout_marginTop="5sp"
             android:layout_marginRight="5sp"
-            android:text="Matricula secundaria(opcional):" />
+            android:text="Matricula secundaria(opcional):"
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/REEditTextMatriculasecun1"

@@ -25,12 +25,13 @@
     <TextView
         android:id="@+id/ISTextAparcafacil"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_marginTop="20sp"
-        android:text="APARCAFACIL PARKING"
+        android:layout_height="66dp"
+        android:layout_marginTop="30sp"
+        android:fontFamily="@font/black_ops_one"
+        android:text="APARCAFACIL"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="34sp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
