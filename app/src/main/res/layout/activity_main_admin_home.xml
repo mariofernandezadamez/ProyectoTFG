@@ -15,23 +15,45 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp"></View>
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="317dp"
+        android:layout_height="346dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#AEBAD2E1"
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="163dp" />
+
     <Button
-        android:id="@+id/plazas"
-        android:layout_width="256dp"
-        android:layout_height="83dp"
+        android:id="@+id/btn_plazas"
+        android:layout_width="224dp"
+        android:layout_height="71dp"
         android:backgroundTint="@color/material_dynamic_primary50"
         android:text="Gestión de plazas"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintHorizontal_bias="0.786"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409" />
+        app:layout_constraintVertical_bias="0.42" />
+
+    <Button
+        android:id="@+id/btn_graficos"
+        android:layout_width="224dp"
+        android:layout_height="71dp"
+        android:backgroundTint="@color/material_dynamic_primary50"
+        android:text="Gráficos de información"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
 
     <ImageView
         android:id="@+id/foto_plazas"
-        android:layout_width="91dp"
-        android:layout_height="82dp"
+        android:layout_width="94dp"
+        android:layout_height="92dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.059"
@@ -62,10 +84,10 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.623"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.135" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <ImageView
         android:id="@+id/foto_graficos"
@@ -73,22 +95,10 @@
         android:layout_height="78dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.119"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.622"
         tools:srcCompat="@drawable/grafico_de_barras" />
 
-    <Button
-        android:id="@+id/graficos"
-        android:layout_width="256dp"
-        android:layout_height="83dp"
-        android:backgroundTint="@color/material_dynamic_primary50"
-        android:text="Gráficos de información"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.884"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.619" />
 </androidx.constraintlayout.widget.ConstraintLayout>
