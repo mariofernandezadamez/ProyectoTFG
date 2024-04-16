@@ -1,37 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PERFIL_USUARIO">
 
-    <Button
-        android:id="@+id/PEBtnVolver"
-        android:layout_width="55dp"
-        android:layout_height="49dp"
-        app:icon="@android:drawable/ic_menu_revert"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021" />
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/foto_parkingss"></ImageView>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"></View>
+
+    <TextView
+        android:id="@+id/PETextAparcafacil"
+        android:layout_width="269dp"
+        android:layout_height="61dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="571dp"
+        android:fontFamily="@font/black_ops_one"
+        android:text="APARCAFACIL"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/PETextPerfildeusuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="545dp"
+        android:text="PERFIL DE USUARIO"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
 
     <LinearLayout
-        android:layout_width="405dp"
-        android:layout_height="443dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="120sp"
+        android:layout_marginRight="20sp"
+        android:layout_marginBottom="50sp"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="29dp"
+            android:layout_width="322dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -200,29 +234,4 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/PETextAparcafacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="APARCAFACIL PARKING"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.106" />
-
-    <TextView
-        android:id="@+id/PETextPerfildeusuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PERFIL DE USUARIO"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.191" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
