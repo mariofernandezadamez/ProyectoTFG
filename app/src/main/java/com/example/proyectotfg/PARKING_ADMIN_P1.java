@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class PARKING_USUARIOS extends AppCompatActivity {
+public class PARKING_ADMIN_P1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parking_usuarios);
+        setContentView(R.layout.activity_parking_admin_p1);
     }
 }

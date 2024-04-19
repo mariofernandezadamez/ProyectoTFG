@@ -13,6 +13,18 @@
         android:theme="@style/Theme.ProyectoTFG"
         tools:targetApi="31">
         <activity
+            android:name=".PARKING_ADMIN_P3"
+            android:exported="false" />
+        <activity
+            android:name=".PARKING_ADMIN_P2"
+            android:exported="false" />
+        <activity
+            android:name=".PARKING_USUARIOS_P3"
+            android:exported="false" />
+        <activity
+            android:name=".PARKING_USUARIOS_P2"
+            android:exported="false" />
+        <activity
             android:name=".RESERVA_PLAZA"
             android:exported="false" />
         <activity
@@ -22,10 +34,10 @@
             android:name=".PERFIL_USUARIO"
             android:exported="false" />
         <activity
-            android:name=".PARKING_USUARIOS"
+            android:name=".PARKING_USUARIOS_P1"
             android:exported="false" />
         <activity
-            android:name=".PARKING_ADMIN"
+            android:name=".PARKING_ADMIN_P1"
             android:exported="false" />
         <activity
             android:name=".MODIFICACION_PLAZA"
