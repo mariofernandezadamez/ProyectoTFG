@@ -114,8 +114,9 @@
                 android:id="@+id/ISBtnIniciarSesion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/material_dynamic_primary20"
-                android:text="Iniciar sesión" />
+                android:backgroundTint="@color/black"
+                android:onClick="inicio"
+                android:text="Iniciar sesion" />
         </LinearLayout>
 
         <LinearLayout
