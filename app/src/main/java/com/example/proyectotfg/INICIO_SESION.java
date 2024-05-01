@@ -16,7 +16,7 @@ public class INICIO_SESION extends AppCompatActivity {
         btn_iniciar_sesion = findViewById(R.id.ISBtnIniciarSesion);
     }
     public void inicio(View view){
-        Intent i = new Intent(this, PARKING_ADMIN_P1.class);
+        Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
         startActivity(i);
     }
 
