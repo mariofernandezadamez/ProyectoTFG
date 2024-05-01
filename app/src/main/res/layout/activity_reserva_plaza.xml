@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".RESERVA_PLAZA">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/foto_parkingss"></ImageView>
+
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="209dp"

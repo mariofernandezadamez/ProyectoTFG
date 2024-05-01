@@ -13,12 +13,6 @@
         android:scaleType="centerCrop"
         android:src="@drawable/foto_parkingss"></ImageView>
 
-    <View
-        android:id="@+id/view3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#80000000"></View>
-
     <TextView
         android:id="@+id/PETextAparcafacil"
         android:layout_width="269dp"
@@ -27,10 +21,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="574dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="561dp"
         android:fontFamily="@font/black_ops_one"
         android:text="APARCAFACIL"
         android:textAlignment="center"
@@ -249,6 +243,14 @@
         android:id="@+id/imageView5"
         android:layout_width="45dp"
         android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="313dp"
+        android:layout_marginBottom="583dp"
         app:srcCompat="@drawable/hacia_atras" />
 
 </RelativeLayout>
