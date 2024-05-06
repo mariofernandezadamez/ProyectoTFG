@@ -19,5 +19,9 @@ public class INICIO_SESION extends AppCompatActivity {
         Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
         startActivity(i);
     }
+    public void registro(View view){
+        Intent i = new Intent(this, REGISTRO_USUARIO.class);
+        startActivity(i);
+    }
 
 }

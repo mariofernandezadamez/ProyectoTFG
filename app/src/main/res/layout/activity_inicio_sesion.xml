@@ -145,6 +145,7 @@
                     android:layout_width="102dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5sp"
+                    android:onClick="registro"
                     android:text="Registrate"
                     android:textColor="#0171FA"
                     android:textSize="18sp" />
