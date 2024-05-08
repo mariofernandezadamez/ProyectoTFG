@@ -7,25 +7,17 @@
     tools:context=".REGISTRO_USUARIO">
 
     <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/foto_parkingss">
-    </ImageView>
+        android:src="@drawable/foto_parkingss"></ImageView>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#80000000">
     </View>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="39dp"
-        android:src="@drawable/hacia_atras"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="5dp" />
 
     <TextView
         android:id="@+id/RETextAparcafacil"
@@ -44,6 +36,7 @@
         app:layout_constraintVertical_bias="0.052" />
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="317dp"
         android:layout_height="526dp"
         android:layout_marginTop="70sp"
@@ -181,10 +174,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5sp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/material_dynamic_primary20"
+                android:backgroundTint="@color/black"
+                android:onClick="registrobtn"
                 android:text="Registrate" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnatras"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
+        android:background="@android:color/transparent"
+        android:onClick="atras"
+        app:icon="@drawable/hacia_atras"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
