@@ -181,19 +181,21 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnatras"
-        android:layout_width="48dp"
-        android:layout_height="41dp"
-        android:background="@android:color/transparent"
-        android:onClick="atras"
-        app:icon="@drawable/hacia_atras"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="45dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.026"
+        app:srcCompat="@drawable/hacia_atras" />
 
     <TextView
         android:id="@+id/textView7"
