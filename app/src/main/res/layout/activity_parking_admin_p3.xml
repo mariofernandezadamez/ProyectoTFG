@@ -14,6 +14,12 @@
         tools:layout_editor_absoluteX="-33dp"
         tools:layout_editor_absoluteY="0dp"></View>
 
+    <View
+        android:id="@+id/view14"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"></View>
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="359dp"
