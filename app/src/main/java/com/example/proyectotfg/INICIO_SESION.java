@@ -3,6 +3,7 @@ package com.example.proyectotfg;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,10 @@ public class INICIO_SESION extends AppCompatActivity {
 
     public void registro(View view){
         Intent i = new Intent(this, REGISTRO_USUARIO.class);
+        startActivity(i);
+    }
+    public void aboutus(View view){
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://aparcafacil3.wordpress.com/"));
         startActivity(i);
     }
 }

@@ -167,6 +167,7 @@
             android:id="@+id/ISTextSobreNosotros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="aboutus"
             android:text="About us"
             android:textAlignment="center"
             android:textSize="18sp" />
