@@ -15,7 +15,7 @@ public class RESERVA_PLAZA extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserva_plaza);
-        flecha = findViewById(R.id.Flechita);
+        //flecha = findViewById(R.id.Flechita);
     }
     public void atras(View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
