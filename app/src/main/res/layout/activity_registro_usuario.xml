@@ -54,7 +54,7 @@
             android:layout_marginLeft="5sp"
             android:layout_marginTop="10sp"
             android:layout_marginRight="5sp"
-            android:text="DNI:"
+            android:text="DNI/NIE/CIF:"
             android:textSize="18sp" />
 
         <EditText
@@ -84,6 +84,20 @@
             android:layout_marginLeft="5sp"
             android:layout_marginTop="5sp"
             android:layout_marginRight="5sp"
+            android:ems="10"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/RETextFechaNacimiento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha de nacimiento"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/REEditTextFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text" />
 
@@ -139,16 +153,6 @@
 
         <EditText
             android:id="@+id/REEditTextMatriculasecun1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5sp"
-            android:layout_marginTop="5sp"
-            android:layout_marginRight="5sp"
-            android:ems="10"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/REEditTextMatriculasecun2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5sp"
