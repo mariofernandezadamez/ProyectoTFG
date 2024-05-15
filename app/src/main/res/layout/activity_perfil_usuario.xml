@@ -45,10 +45,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="81dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="523dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="69dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="535dp"
         android:text="Perfil"
         android:textColor="#FFFFFF"
         android:textSize="24sp" />
@@ -275,6 +275,7 @@
         android:layout_marginEnd="299dp"
         android:layout_marginBottom="578dp"
         android:background="#00FFFFFF"
+        android:onClick="atrass"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
 </RelativeLayout>
