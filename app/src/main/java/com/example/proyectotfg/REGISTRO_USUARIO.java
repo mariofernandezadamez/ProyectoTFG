@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -19,7 +18,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.io.StringReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,21 +51,22 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                onBackPressed();
-                ejecutarServicio("http://192.168.91.1/bbdd_tfg/insertado_registro.php");
             }
+
+
 
         });
     }
 
     public void registrobtn(View view){
         Intent i = new Intent(this, INICIO_SESION.class);
+        ejecutarServicio();
         startActivity(i);
     }
 
 
-    private void ejecutarServicio(String url){
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+    private void ejecutarServicio(){
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.91.1/bbdd_tfg/insertado_registro.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(), "Operación existosa", Toast.LENGTH_SHORT).show();
@@ -83,12 +82,7 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError{
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("num_documento",etxt_Dni.getText().toString());
-
-                //ESTO ES PARA CAMBIAR EL FORMATO A LA FECHA
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                String fecha_final = dateFormat.format(etxt_FechaNacimiento);
-                parametros.put("fecha_nacimiento",fecha_final);
-
+                parametros.put("fecha_nacimiento",etxt_FechaNacimiento.toString());
                 parametros.put("nombre",etxt_Usuario.getText().toString());
                 parametros.put("contrasena",etxt_Contrasena.getText().toString());
                 parametros.put("matricula_primaria",etxt_Matricula_principal.getText().toString());
