@@ -37,8 +37,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout5"
-        android:layout_width="317dp"
-        android:layout_height="526dp"
+        android:layout_width="312dp"
+        android:layout_height="484dp"
         android:layout_marginTop="70sp"
         android:background="@color/white"
         android:orientation="vertical"
@@ -84,20 +84,6 @@
             android:layout_marginLeft="5sp"
             android:layout_marginTop="5sp"
             android:layout_marginRight="5sp"
-            android:ems="10"
-            android:inputType="text" />
-
-        <TextView
-            android:id="@+id/RETextFechaNacimiento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Fecha de nacimiento"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/REEditTextFecha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text" />
 
