@@ -28,7 +28,6 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
     ImageButton btnatras;
     EditText etxt_Dni;
     EditText etxt_Usuario;
-    EditText etxt_FechaNacimiento;
     EditText etxt_Contrasena;
     EditText etxt_Matricula_principal;
     EditText etxt_Matricula_secundaria;
@@ -41,7 +40,6 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
         setContentView(R.layout.activity_registro_usuario);
         etxt_Dni = findViewById(R.id.REEditTextDNI);
         etxt_Usuario = findViewById(R.id.REEditTextUsuario);
-        etxt_FechaNacimiento = findViewById(R.id.REEditTextFecha);
         etxt_Contrasena = findViewById(R.id.REEditTextContraseña);
         etxt_Matricula_principal = findViewById(R.id.REEditTextMatriculaprin);
         etxt_Matricula_secundaria = findViewById(R.id.REEditTextMatriculasecun1);
@@ -82,7 +80,6 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError{
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("num_documento",etxt_Dni.getText().toString());
-                parametros.put("fecha_nacimiento",etxt_FechaNacimiento.toString());
                 parametros.put("nombre",etxt_Usuario.getText().toString());
                 parametros.put("contrasena",etxt_Contrasena.getText().toString());
                 parametros.put("matricula_primaria",etxt_Matricula_principal.getText().toString());
