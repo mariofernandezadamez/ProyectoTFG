@@ -50,9 +50,6 @@
             android:name=".ADMIN_HOME"
             android:exported="false" />
         <activity
-            android:name=".ALERTA_ADMIN"
-            android:exported="false" />
-        <activity
             android:name=".INICIO_SESION"
             android:exported="true">
             <intent-filter>

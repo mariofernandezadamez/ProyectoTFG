@@ -41,25 +41,25 @@ public class INICIO_SESION extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void ejecutarInicio_Sesion(){
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.91.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if (!response.isEmpty()){
-                    Intent intent = new Intent(getApplicationContext(),PARKING_USUARIOS_P1.class);
-                    startActivity(intent);
-                }
-                Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+    //private void ejecutarInicio_Sesion(){
+       // StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.91.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
+        //    @Override
+        //    public void onResponse(String response) {
+             //   if (!response.isEmpty()){
+             //       Intent intent = new Intent(getApplicationContext(),PARKING_USUARIOS_P1.class);
+              //      startActivity(intent);
+             //   }
+             //   Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
+           // }
+     //   }, new Response.ErrorListener() {
+        //    @Override
+         //   public void onErrorResponse(VolleyError error) {
 
-            }
-        })
-        {
-            protected Map
-        }
+          //  }
+      //  })
+       // {
+       //     protected Map
+       // }
 
-    }
+  //  }
 }
