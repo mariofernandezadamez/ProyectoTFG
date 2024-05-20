@@ -64,6 +64,7 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
 
 
     private void ejecutarServicio(){
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.91.1/bbdd_tfg/insertado_registro.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
