@@ -51,8 +51,6 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
             public void onClick(View v) {
             }
 
-
-
         });
     }
 
