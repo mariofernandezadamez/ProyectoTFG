@@ -51,7 +51,6 @@ public class INICIO_SESION extends AppCompatActivity {
     }
 
     public void inicio_sesion(){
-
         if (etxt_dni.getText().toString().equals("") && etxt_contra.getText().toString().equals("") ){
             Toast.makeText(getApplicationContext(), "Ambos campos están vacios", Toast.LENGTH_SHORT).show();
         } else if (etxt_dni.getText().toString().equals("")){
@@ -62,9 +61,18 @@ public class INICIO_SESION extends AppCompatActivity {
             StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.91.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    if (response.contains("Inicio de sesión correcto")) {
-                        Intent intent = new Intent(getApplicationContext(),PARKING_USUARIOS_P1.class);
-                        startActivity(intent);
+                    String[] partes_respuesta = response.split("\\|");
+                    String msg_Inicio_Sesion = partes_respuesta[0];
+                    String msg_rolUsuario = partes_respuesta[1];
+
+                    if (msg_Inicio_Sesion.contains("Inicio de sesión correcto")) {
+                        if (msg_rolUsuario.contains("usuario")){
+                            Intent intent_user = new Intent(getApplicationContext(),PARKING_USUARIOS_P1.class);
+                            startActivity(intent_user);
+                        }else{
+                            Intent intent_admin = new Intent(getApplicationContext(),RESERVA_PLAZA.class);
+                            startActivity(intent_admin);
+                        }
                         etxt_dni.setText("");
                         etxt_contra.setText("");
                     }else{
