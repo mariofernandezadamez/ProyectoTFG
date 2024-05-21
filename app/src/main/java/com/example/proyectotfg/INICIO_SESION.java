@@ -7,29 +7,38 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class INICIO_SESION extends AppCompatActivity {
     Button btn_iniciar_sesion;
     TextView btnregistro;
+
+    EditText etxt_dni;
+    EditText etxt_contra;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
         btn_iniciar_sesion = findViewById(R.id.ISBtnIniciarSesion);
         btnregistro = findViewById(R.id.ISTextRegistrate);
+        etxt_dni = findViewById(R.id.ISEditTextUsuario);
+        etxt_contra = findViewById(R.id.ISEditTextContraseña);
     }
     public void inicio(View view){
-        Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
-        startActivity(i);
+        inicio_sesion();
     }
 
     public void registro(View view){
@@ -41,25 +50,42 @@ public class INICIO_SESION extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void ejecutarInicio_Sesion(){
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.91.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if (!response.isEmpty()){
-                    Intent intent = new Intent(getApplicationContext(),PARKING_USUARIOS_P1.class);
-                    startActivity(intent);
+    public void inicio_sesion(){
+
+        if (etxt_dni.getText().toString().equals("") && etxt_contra.getText().toString().equals("") ){
+            Toast.makeText(getApplicationContext(), "Ambos campos están vacios", Toast.LENGTH_SHORT).show();
+        } else if (etxt_dni.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(), "El campo del DNI está vacio", Toast.LENGTH_SHORT).show();
+        }else if (etxt_contra.getText().toString().equals("")) {
+            Toast.makeText(getApplicationContext(), "El campo de la contraseña esta vacio", Toast.LENGTH_SHORT).show();
+        }else{
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.91.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    if (response.contains("Inicio de sesión correcto")) {
+                        Intent intent = new Intent(getApplicationContext(),PARKING_USUARIOS_P1.class);
+                        startActivity(intent);
+                        etxt_dni.setText("");
+                        etxt_contra.setText("");
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Usuario o constraseña incorrecto" ,Toast.LENGTH_SHORT).show();
+                    }
                 }
-                Toast.makeText(getApplicationContext(), "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        })
-        {
-            protected Map
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(getApplicationContext(), "Error"+error.getMessage() ,Toast.LENGTH_SHORT).show();
+                }
+            }){
+                protected  Map<String,String> getParams() throws AuthFailureError{
+                    Map<String,String> parametros = new HashMap<>();
+                    parametros.put("num_documento",etxt_dni.getText().toString());
+                    parametros.put("contrasena",etxt_contra.getText().toString());
+                    return parametros;
+                }
+            };
+            RequestQueue requestQueue = Volley.newRequestQueue(INICIO_SESION.this);
+            requestQueue.add(stringRequest);
         }
-
     }
 }
