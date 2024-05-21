@@ -58,7 +58,7 @@ public class INICIO_SESION extends AppCompatActivity {
         }else if (etxt_contra.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "El campo de la contraseña esta vacio", Toast.LENGTH_SHORT).show();
         }else{
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.91.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     String[] partes_respuesta = response.split("\\|");

@@ -79,7 +79,7 @@
 
         <LinearLayout
             android:layout_width="322dp"
-            android:layout_height="41dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
@@ -115,7 +115,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="5dp"
@@ -136,17 +136,25 @@
                 app:layout_constraintVertical_bias="0.407" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tvHoraEntrada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:layout_below="@id/btnHoraEntrada"
+                android:layout_marginTop="16dp"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnHoraEntrada"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:text="Button" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="5dp"
@@ -155,23 +163,32 @@
             <TextView
                 android:id="@+id/textView32"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="34dp"
                 android:layout_weight="1"
                 android:text="Hora de salida:"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/tvHoraSalida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:layout_below="@id/btnHoraSalida"
+                android:layout_marginTop="16dp"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnHoraSalida"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_weight="1"
+            android:text="Button" />
+
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="57dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="5dp"
@@ -188,14 +205,14 @@
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="39dp"
                 android:layout_weight="1" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="42dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
@@ -221,17 +238,18 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="53dp"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="235dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#000000"
-                android:text="Reservar plaza" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#000000"
+            android:text="Reservar plaza" />
 
     </LinearLayout>
 
