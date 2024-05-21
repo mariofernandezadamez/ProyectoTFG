@@ -21,8 +21,12 @@
         android:layout_height="346dp"
         android:background="#FFFFFF"
         android:backgroundTint="#AEBAD2E1"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="163dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.578" />
 
     <Button
         android:id="@+id/btn_plazas"
