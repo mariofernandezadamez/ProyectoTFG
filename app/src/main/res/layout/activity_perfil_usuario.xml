@@ -89,7 +89,6 @@
                 android:id="@+id/TextVievUsuario"
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.277"
@@ -128,7 +127,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.697"
@@ -161,7 +159,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.697"
@@ -193,7 +190,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.697"
@@ -236,8 +232,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text"
-                android:text="Name" />
+                android:inputType="text" />
 
         </LinearLayout>
 

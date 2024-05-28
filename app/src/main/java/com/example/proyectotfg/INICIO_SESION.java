@@ -25,6 +25,7 @@ import java.util.Map;
 public class INICIO_SESION extends AppCompatActivity {
     Button btn_iniciar_sesion;
     TextView btnregistro;
+
     EditText etxt_dni;
     EditText etxt_contra;
     @Override

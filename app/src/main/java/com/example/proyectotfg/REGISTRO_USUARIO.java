@@ -66,6 +66,7 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/registro.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 Toast.makeText(getApplicationContext(), "Usuario registrado", Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
