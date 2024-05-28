@@ -2,19 +2,23 @@ package com.example.proyectotfg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class PARKING_USUARIOS_P2 extends AppCompatActivity {
-    Button btn_perfil, btn_planta1, btn_planta2, btn_planta3, btn_disponible1, btn_disponible2, btn_disponible3, btn_disponible4, btn_disponible5, btn_disponible6, btn_disponible7, btn_disponible8, btn_disponible9,
+    Button  btn_planta1, btn_planta2, btn_planta3, btn_disponible1, btn_disponible2, btn_disponible3, btn_disponible4, btn_disponible5, btn_disponible6, btn_disponible7, btn_disponible8, btn_disponible9,
             btn_disponible10, btn_disponible11, btn_disponible12, btn_disponible13, btn_disponible14, btn_disponible15, btn_disponible16;
+    ImageButton btn_perfil;
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parking_usuarios_p2);
-        btn_perfil = findViewById(R.id.Usuarios_P2_perfil);
+        btn_perfil = findViewById(R.id.imageButton4);
         btn_planta1 = findViewById(R.id.Usuarios_P2_p1);
         btn_planta2 = findViewById(R.id.Usuarios_P2_p2);
         btn_planta3 = findViewById(R.id.Usuarios_P2_p3);

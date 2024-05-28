@@ -25,7 +25,6 @@ import java.util.Map;
 public class INICIO_SESION extends AppCompatActivity {
     Button btn_iniciar_sesion;
     TextView btnregistro;
-
     EditText etxt_dni;
     EditText etxt_contra;
     @Override
@@ -58,6 +57,11 @@ public class INICIO_SESION extends AppCompatActivity {
         }else if (etxt_contra.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "El campo de la contraseña esta vacio", Toast.LENGTH_SHORT).show();
         }else{
+            final String numDocumento = etxt_dni.getText().toString();
+            if (numDocumento == null || numDocumento.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "El número de documento está vacío", Toast.LENGTH_SHORT).show();
+                return;
+            }
             StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -68,11 +72,13 @@ public class INICIO_SESION extends AppCompatActivity {
                     if (msg_Inicio_Sesion.contains("Inicio de sesión correcto")) {
                         if (msg_rolUsuario.contains("usuario")){
                             Intent intent_user = new Intent(getApplicationContext(),PARKING_USUARIOS_P1.class);
+                            intent_user.putExtra("num_documento", etxt_dni.getText().toString());
                             startActivity(intent_user);
                         }else{
                             Intent intent_admin = new Intent(getApplicationContext(),RESERVA_PLAZA.class);
                             startActivity(intent_admin);
                         }
+
                         etxt_dni.setText("");
                         etxt_contra.setText("");
                     }else{

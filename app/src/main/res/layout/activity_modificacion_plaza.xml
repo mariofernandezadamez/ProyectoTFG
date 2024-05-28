@@ -99,7 +99,7 @@
                 app:layout_constraintVertical_bias="0.33" />
 
             <TextView
-                android:id="@+id/PETextDNI"
+                android:id="@+id/TextVievUsuario"
                 android:layout_width="166dp"
                 android:layout_height="wrap_content"
                 android:text="TextView"
@@ -185,7 +185,7 @@
                 android:textSize="18sp" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinnermatriculas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -232,7 +232,7 @@
                 android:text="Cancelar" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/btnReservar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
