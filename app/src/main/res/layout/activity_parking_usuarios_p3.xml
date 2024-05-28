@@ -46,13 +46,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <Button
-            android:id="@+id/Usuarios_P3_perfil"
+        <ImageButton
+            android:id="@+id/imageButton6"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="71dp"
             android:layout_weight="1"
-            android:onClick="perfil3"
-            android:text="Perfil" />
+            android:backgroundTint="#00FFFFFF"
+            android:src="@android:drawable/btn_star"
+            android:tint="#00000000"
+            tools:src="@drawable/usuario__4_32px" />
 
         <Button
             android:id="@+id/Usuarios_P3_p1"
