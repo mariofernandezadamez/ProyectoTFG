@@ -29,6 +29,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RESERVA_PLAZA extends AppCompatActivity {
@@ -84,7 +85,6 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, matriculasList);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spmatriculas.setAdapter(spinnerAdapter);
-        System.out.println("Numero de documento paodkoawd= " + num_documento);
         cargarMatriculas(num_documento);
 
         btnReservar.setOnClickListener(new View.OnClickListener() {
@@ -100,13 +100,10 @@ public class RESERVA_PLAZA extends AppCompatActivity {
     }
 
     private void cargarMatriculas(String numDocumento) {
-        System.out.println("Número de documento metodoo: " + numDocumento);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/matriculas.php?num_documento=" + numDocumento, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                System.out.println("Respuesta del servidor: " + response);  // Registra la respuesta
                 try {
-                    // Extraer el array JSON de la respuesta
                     String jsonArrayString = response.substring(response.indexOf("["), response.lastIndexOf("]") + 1);
                     JSONArray jsonArray = new JSONArray(jsonArrayString);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
@@ -151,7 +148,6 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-
     private void mostrarTimePicker(final boolean esHoraEntrada) {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -177,29 +173,57 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         return String.format("%02d:%02d:00", hourOfDay, minute);
     }
 
-
-
     private void realizarReserva(String plaza, String planta) {
         if (horaEntradaSeleccionada != null && horaSalidaSeleccionada != null) {
-            int horaEntrada = Integer.parseInt(horaEntradaSeleccionada.split(":")[0]);
-            int minutoEntrada = Integer.parseInt(horaEntradaSeleccionada.split(":")[1]);
-            int horaSalida = Integer.parseInt(horaSalidaSeleccionada.split(":")[0]);
-            int minutoSalida = Integer.parseInt(horaSalidaSeleccionada.split(":")[1]);
-
-            int diferenciaHoras = horaSalida - horaEntrada;
-            int diferenciaMinutos = minutoSalida - minutoEntrada;
-
-            if (diferenciaMinutos < 0) {
-                diferenciaHoras--;
-                diferenciaMinutos += 60;
-            }
-            double costoTiempo = calcularCostoTiempo(diferenciaHoras, diferenciaMinutos);
-            costetiempo.setText(String.format(String.valueOf(costoTiempo)));
-
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/reservas.php", new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/verificar_reserva.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                    if (response.equals("1")) {
+                        Toast.makeText(getApplicationContext(), "Plaza no disponible en el rango de tiempo seleccionado", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Continuar con la reserva porque la plaza está disponible
+                        int horaEntrada = Integer.parseInt(horaEntradaSeleccionada.split(":")[0]);
+                        int minutoEntrada = Integer.parseInt(horaEntradaSeleccionada.split(":")[1]);
+                        int horaSalida = Integer.parseInt(horaSalidaSeleccionada.split(":")[0]);
+                        int minutoSalida = Integer.parseInt(horaSalidaSeleccionada.split(":")[1]);
+
+                        int diferenciaHoras = horaSalida - horaEntrada;
+                        int diferenciaMinutos = minutoSalida - minutoEntrada;
+
+                        if (diferenciaMinutos < 0) {
+                            diferenciaHoras--;
+                            diferenciaMinutos += 60;
+                        }
+                        double costoTiempo = calcularCostoTiempo(diferenciaHoras, diferenciaMinutos);
+                        costetiempo.setText(String.format("%.2f", costoTiempo));
+
+                        StringRequest reservaRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/reservas.php", new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getApplicationContext(), "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        }) {
+                            @Override
+                            protected Map<String, String> getParams() throws AuthFailureError {
+                                Map<String, String> parametros = new HashMap<>();
+                                parametros.put("hora_entrada", horaEntradaSeleccionada);
+                                parametros.put("hora_salida", horaSalidaSeleccionada);
+                                parametros.put("matricula", spmatriculas.getSelectedItem().toString());
+                                parametros.put("coste_tiempo", String.valueOf(costoTiempo));
+                                parametros.put("plaza", plaza);
+                                parametros.put("numero_planta", planta);
+                                parametros.put("usuarios_num_documento", num_documento);
+                                return parametros;
+                            }
+                        };
+                        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                        requestQueue.add(reservaRequest);
+                    }
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -210,22 +234,20 @@ public class RESERVA_PLAZA extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> parametros = new HashMap<>();
+                    parametros.put("plaza", plaza);
+                    parametros.put("planta", planta);
                     parametros.put("hora_entrada", horaEntradaSeleccionada);
                     parametros.put("hora_salida", horaSalidaSeleccionada);
-                    parametros.put("matricula", spmatriculas.getSelectedItem().toString());
-                    parametros.put("coste_tiempo", String.valueOf(costoTiempo));
-                    parametros.put("plaza", plaza);
-                    parametros.put("numero_planta", planta);
-                    parametros.put("usuarios_num_documento", num_documento);
                     return parametros;
                 }
             };
-            RequestQueue requestQueue = Volley.newRequestQueue(this);
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
             requestQueue.add(stringRequest);
         } else {
             Toast.makeText(getApplicationContext(), "Por favor, seleccione la hora de entrada y salida.", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     private double calcularCostoTiempo(int horas, int minutos) {
         double precioPorHora = 10.0;
@@ -233,3 +255,4 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         return precioPorHora * (totalMinutos / 60.0);
     }
 }
+
