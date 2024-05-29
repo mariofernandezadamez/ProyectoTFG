@@ -79,12 +79,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/usuariosBTNdispo9P2"
+        android:id="@+id/usuariosBTNdispo09P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 9"
         app:layout_constraintBottom_toBottomOf="@+id/view11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -98,7 +98,7 @@
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 12"
         app:layout_constraintBottom_toBottomOf="@+id/view11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -112,7 +112,7 @@
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 10"
         app:layout_constraintBottom_toBottomOf="@+id/view11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -126,7 +126,7 @@
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 13"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -140,7 +140,7 @@
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 11"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -154,7 +154,7 @@
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 15"
         app:layout_constraintBottom_toBottomOf="@+id/view11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -168,7 +168,7 @@
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 14"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -182,7 +182,7 @@
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -191,12 +191,12 @@
         app:layout_constraintVertical_bias="0.972" />
 
     <Button
-        android:id="@+id/usuariosBTNdispo1P2"
+        android:id="@+id/usuariosBTNdispo01P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -205,12 +205,12 @@
         app:layout_constraintVertical_bias="0.211" />
 
     <Button
-        android:id="@+id/usuariosBTNdispo2P2"
+        android:id="@+id/usuariosBTNdispo02P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -219,12 +219,12 @@
         app:layout_constraintVertical_bias="0.319" />
 
     <Button
-        android:id="@+id/usuariosBTNdispo3P2"
+        android:id="@+id/usuariosBTNdispo03P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -233,12 +233,12 @@
         app:layout_constraintVertical_bias="0.423" />
 
     <Button
-        android:id="@+id/usuariosBTNdispo4P2"
+        android:id="@+id/usuariosBTNdispo04P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -247,12 +247,12 @@
         app:layout_constraintVertical_bias="0.537" />
 
     <Button
-        android:id="@+id/usuariosBTNdispo5P2"
+        android:id="@+id/usuariosBTNdispo05P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -261,12 +261,12 @@
         app:layout_constraintVertical_bias="0.646" />
 
     <Button
-        android:id="@+id/usuariosBTNdispo6P2"
+        android:id="@+id/usuariosBTNdispo06P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 6"
         app:layout_constraintBottom_toBottomOf="@+id/view11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -275,12 +275,12 @@
         app:layout_constraintVertical_bias="0.754" />
 
     <Button
-        android:id="@+id/usuariosBTNdispo7P2"
+        android:id="@+id/usuariosBTNdispo07P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
@@ -289,12 +289,12 @@
         app:layout_constraintVertical_bias="0.865" />
 
     <Button
-        android:id="@+id/usuariosBTNdispo8P2"
+        android:id="@+id/usuariosBTNdispo08P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:onClick="reservas_2"
-        android:text="Disponible"
+        android:text="Plaza 8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
