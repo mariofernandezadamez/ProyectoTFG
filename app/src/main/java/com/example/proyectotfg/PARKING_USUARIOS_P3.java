@@ -3,12 +3,15 @@ package com.example.proyectotfg;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -19,8 +22,16 @@ import com.android.volley.toolbox.Volley;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class PARKING_USUARIOS_P3 extends AppCompatActivity {
 
+    private static final int REQUEST_CODE_RESERVA = 1;
     Button btn_perfil_p3;
     Button btn_planta1, btn_planta2, btn_planta3, btn_disponible1, btn_disponible2, btn_disponible3, btn_disponible4, btn_disponible5, btn_disponible6, btn_disponible7, btn_disponible8, btn_disponible9,
             btn_disponible10, btn_disponible11, btn_disponible12, btn_disponible13, btn_disponible14, btn_disponible15, btn_disponible16;
@@ -53,6 +64,7 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
         btn_disponible15 = findViewById(R.id.usuariosBTNdispo15P3);
         btn_disponible16 = findViewById(R.id.usuariosBTNdispo16P3);
 
+        obtenerEstadoPlazas();
         requestQueue = Volley.newRequestQueue(this);
         System.out.println("Número de documento: " + num_documento);
 
@@ -88,8 +100,17 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
         startActivity(i);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_RESERVA && resultCode == RESULT_OK) {
+            // Si se devuelve un resultado exitoso desde RESERVA_PLAZA, actualiza el estado de las plazas
+            obtenerEstadoPlazas();
+        }
+    }
+
     public void rellenar_perfil() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -120,6 +141,46 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
     }
 
 
+    private void obtenerEstadoPlazas() {
+        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/verificar_reserva.php", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        int numPlaza = jsonObject.getInt("num_plaza");
+                        boolean disponible = jsonObject.getBoolean("disponible");
+
+                        updateUIForPlaza(numPlaza, disponible);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Error al parsear JSON", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("numero_planta", "1");
+                return params;
+            }
+        };
+
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(request);
+    }
+
+
+
     public void obtenerPlazaPlanta(View view) {
         int id = view.getId();
 
@@ -129,5 +190,31 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
         planta = nombreRecurso.substring(nombreRecurso.length() - 1);
 
         System.out.println("Plaza: " + plaza + ", Planta: " + planta);
+    }
+
+    private void updateUIForPlaza(int numPlaza, boolean disponible) {
+        int plazaButtonId = getPlazaButtonId(numPlaza);
+        Button plazaButton = findViewById(plazaButtonId);
+
+        if (plazaButton != null) {
+            if (disponible) {
+                // Plaza disponible
+                plazaButton.setBackgroundColor(Color.GREEN);
+                plazaButton.setClickable(true);
+            } else {
+                // Plaza no disponible
+                plazaButton.setBackgroundColor(Color.RED);
+                plazaButton.setClickable(false);
+            }
+        } else {
+            Log.e("UI Update", "Button ID not found for plaza number: " + numPlaza);
+        }
+    }
+
+
+    private int getPlazaButtonId(int numPlaza) {
+        // Genera el nombre del ID del botón basado en el número de plaza
+        String buttonIdName = "usuariosBTNdispo" + String.format("%02d", numPlaza) + "P1";
+        return getResources().getIdentifier(buttonIdName, "id", getPackageName());
     }
 }

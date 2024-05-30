@@ -38,6 +38,8 @@ public class PARKING_USUARIOS_P1 extends AppCompatActivity {
     String num_documento = "";
     String planta= "";
     String plaza = "";
+    private static final int REQUEST_CODE_RESERVA = 1;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -107,8 +109,17 @@ public class PARKING_USUARIOS_P1 extends AppCompatActivity {
         startActivity(i);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_RESERVA && resultCode == RESULT_OK) {
+            // Si se devuelve un resultado exitoso desde RESERVA_PLAZA, actualiza el estado de las plazas
+            obtenerEstadoPlazas();
+        }
+    }
+
     public void rellenar_perfil() {
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
 
@@ -144,8 +155,7 @@ public class PARKING_USUARIOS_P1 extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 try {
-                    String jsonArrayString = response.substring(response.indexOf("["), response.lastIndexOf("]") + 1);
-                    JSONArray jsonArray = new JSONArray(jsonArrayString);
+                    JSONArray jsonArray = new JSONArray(response);
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
@@ -178,6 +188,7 @@ public class PARKING_USUARIOS_P1 extends AppCompatActivity {
         requestQueue.add(request);
     }
 
+
     public void obtenerPlazaPlanta(View view) {
         int id = view.getId();
 
@@ -195,9 +206,11 @@ public class PARKING_USUARIOS_P1 extends AppCompatActivity {
 
         if (plazaButton != null) {
             if (disponible) {
+                // Plaza disponible
                 plazaButton.setBackgroundColor(Color.GREEN);
                 plazaButton.setClickable(true);
             } else {
+                // Plaza no disponible
                 plazaButton.setBackgroundColor(Color.RED);
                 plazaButton.setClickable(false);
             }
@@ -205,7 +218,6 @@ public class PARKING_USUARIOS_P1 extends AppCompatActivity {
             Log.e("UI Update", "Button ID not found for plaza number: " + numPlaza);
         }
     }
-
 
 
     private int getPlazaButtonId(int numPlaza) {
