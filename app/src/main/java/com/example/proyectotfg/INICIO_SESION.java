@@ -76,7 +76,7 @@ public class INICIO_SESION extends AppCompatActivity {
                             intent_user.putExtra("num_documento", etxt_dni.getText().toString());
                             startActivity(intent_user);
                         }else{
-                            Intent intent_admin = new Intent(getApplicationContext(),RESERVA_PLAZA.class);
+                            Intent intent_admin = new Intent(getApplicationContext(),ADMIN_HOME.class);
                             startActivity(intent_admin);
                         }
 

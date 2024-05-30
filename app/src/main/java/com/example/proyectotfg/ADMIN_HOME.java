@@ -22,4 +22,14 @@ public class ADMIN_HOME extends AppCompatActivity {
         Intent i = new Intent(this, INICIO_SESION.class);
         startActivity(i);
     }
+
+    public void btn_graficos(View view){
+        Intent i = new Intent(this, GRAFICOS.class);
+        startActivity(i);
+    }
+
+    public void btn_modificacion(View view){
+        Intent i = new Intent(this, MODIFICACION_PLAZA.class);
+        startActivity(i);
+    }
 }
