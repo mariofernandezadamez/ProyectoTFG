@@ -6,19 +6,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 public class PARKING_USUARIOS_P2 extends AppCompatActivity {
-    Button btn_perfil_p2;
+
     Button  btn_planta1, btn_planta2, btn_planta3, btn_disponible1, btn_disponible2, btn_disponible3, btn_disponible4, btn_disponible5, btn_disponible6, btn_disponible7, btn_disponible8, btn_disponible9,
             btn_disponible10, btn_disponible11, btn_disponible12, btn_disponible13, btn_disponible14, btn_disponible15, btn_disponible16;
 
+    RequestQueue requestQueue;
+    Button btn_perfil_p2;
     String num_documento = "";
     String planta= "";
     String plaza = "";
-    RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +67,7 @@ public class PARKING_USUARIOS_P2 extends AppCompatActivity {
     }
     public void perfil2 (View view){
         Intent i = new Intent(this, PERFIL_USUARIO.class);
+        rellenar_perfil();
         startActivity(i);
     }
     public void planta1_2 (View view){
@@ -78,6 +90,38 @@ public class PARKING_USUARIOS_P2 extends AppCompatActivity {
         i.putExtra("numero_planta", planta);
         startActivity(i);
     }
+
+    public void rellenar_perfil() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                String[] partes_conjuntas = response.split("\\:");
+
+                String msg_valor = partes_conjuntas[1];
+                String msg_valor_2 = partes_conjuntas[3];
+                String msg_valor_3 = partes_conjuntas[5];
+                String msg_valor_4 = partes_conjuntas[7];
+                String msg_valor_5 = partes_conjuntas[9];
+
+                Intent intent = new Intent(PARKING_USUARIOS_P2.this, PERFIL_USUARIO.class);
+                intent.putExtra("num_documento", msg_valor);
+                intent.putExtra("usuario",msg_valor_2);
+                intent.putExtra("contrasena",msg_valor_3);
+                intent.putExtra("matricula_principal",msg_valor_4);
+                intent.putExtra("matricula_secundaria",msg_valor_5);
+                startActivity(intent);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Error"+ error.getMessage() ,Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
 
     public void obtenerPlazaPlanta(View view) {
         int id = view.getId();
