@@ -37,6 +37,7 @@ import java.util.Map;
 
 public class RESERVA_PLAZA extends AppCompatActivity {
     TextView Txtusuario, costetiempo;
+    RequestQueue requestQueue;
     Spinner spmatriculas;
     Button btnHoraEntrada;
     Button btnHoraSalida;
@@ -204,6 +205,7 @@ public class RESERVA_PLAZA extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                                rellenar_plaza();
                                 // Actualizar la interfaz para mostrar la plaza como no disponible
                                 updateUIForPlaza(Integer.parseInt(plaza), false);
                             }
@@ -286,5 +288,37 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         int totalMinutos = horas * 60 + minutos;
         return precioPorHora * (totalMinutos / 60.0);
     }
+
+    public void rellenar_plaza() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bd/mostrarDatosReserva.php?num_documento=" + num_documento, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                String[] partes_conjuntas = response.split("\\|");
+
+                String msg_valor = partes_conjuntas[1];
+                String msg_valor_2 = partes_conjuntas[3];
+                String msg_valor_3 = partes_conjuntas[5];
+                String msg_valor_4 = partes_conjuntas[7];
+                String msg_valor_5 = partes_conjuntas[9];
+
+                Intent intent = new Intent(RESERVA_PLAZA.this, MODIFICACION_PLAZA.class);
+                intent.putExtra("usuarios_num_documento", msg_valor);
+                intent.putExtra("hora_entrada",msg_valor_2);
+                intent.putExtra("hora_salida",msg_valor_3);
+                intent.putExtra("matricula",msg_valor_4);
+                intent.putExtra("coste_tiempo",msg_valor_5);
+                startActivity(intent);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Error"+ error.getMessage() ,Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
 }
 

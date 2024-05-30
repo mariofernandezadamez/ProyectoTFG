@@ -74,11 +74,11 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695">
+        app:layout_constraintVertical_bias="0.592">
 
         <LinearLayout
             android:layout_width="322dp"
-            android:layout_height="61dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
@@ -98,23 +98,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.33" />
 
-            <TextView
-                android:id="@+id/TextVievUsuario"
-                android:layout_width="166dp"
+            <EditText
+                android:id="@+id/PlainTextUsuario"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.277"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.33" />
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="38dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="5dp"
@@ -135,17 +131,22 @@
                 app:layout_constraintVertical_bias="0.407" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/txtHoraEntrada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnHoraEntrada1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Button" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="53dp"
+            android:layout_height="42dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="5dp"
@@ -160,17 +161,22 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/txtHoraSalida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnHoraSalida1"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="Button" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="58dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="5dp"
@@ -184,11 +190,13 @@
                 android:text="¿Que coche deseas seleccionar?"
                 android:textSize="18sp" />
 
-            <Spinner
-                android:id="@+id/spinnermatriculas"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/PlainTextCOCHE"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text" />
 
         </LinearLayout>
 
@@ -209,12 +217,13 @@
                 android:text="Coste total:"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/costetiempo"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/PlainTextCosteTotal"
+                android:layout_width="4dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:ems="10"
+                android:inputType="text" />
 
         </LinearLayout>
 
