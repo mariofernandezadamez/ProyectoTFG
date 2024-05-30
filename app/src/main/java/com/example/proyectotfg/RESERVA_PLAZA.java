@@ -2,7 +2,9 @@ package com.example.proyectotfg;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -175,7 +177,7 @@ public class RESERVA_PLAZA extends AppCompatActivity {
 
     private void realizarReserva(String plaza, String planta) {
         if (horaEntradaSeleccionada != null && horaSalidaSeleccionada != null) {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/verificar_reserva.php", new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/verificar_reserva.php?=" + 1, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.equals("1")) {
@@ -201,6 +203,8 @@ public class RESERVA_PLAZA extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                                // Actualizar la interfaz para mostrar la plaza como no disponible
+                                updateUIForPlaza(Integer.parseInt(plaza), false);
                             }
                         }, new Response.ErrorListener() {
                             @Override
@@ -246,6 +250,28 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         } else {
             Toast.makeText(getApplicationContext(), "Por favor, seleccione la hora de entrada y salida.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void updateUIForPlaza(int numPlaza, boolean disponible) {
+        int plazaButtonId = getPlazaButtonId(numPlaza);
+        Button plazaButton = findViewById(plazaButtonId);
+
+        if (plazaButton != null) {
+            if (disponible) {
+                plazaButton.setBackgroundColor(Color.GREEN);
+                plazaButton.setClickable(true);
+            } else {
+                plazaButton.setBackgroundColor(Color.RED);
+                plazaButton.setClickable(false);
+            }
+        } else {
+            Log.e("UI Update", "Button ID not found for plaza number: " + numPlaza);
+        }
+    }
+
+    private int getPlazaButtonId(int numPlaza) {
+        String buttonIdName = "usuariosBTNdispo" + String.format("%02d", numPlaza) + "P1";
+        return getResources().getIdentifier(buttonIdName, "id", getPackageName());
     }
 
 
