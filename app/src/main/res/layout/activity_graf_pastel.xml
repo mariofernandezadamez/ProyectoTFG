@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GRAFICOS">
+    tools:context=".GRAF_PASTEL">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -34,11 +34,11 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="130sp"
+        android:layout_marginLeft="23sp"
         android:layout_marginTop="85sp"
-        android:text="Gráfico"
+        android:text="Plazas vacias  VS  Plazas ocupadas"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -50,5 +50,6 @@
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="10dp"/>
 </RelativeLayout>

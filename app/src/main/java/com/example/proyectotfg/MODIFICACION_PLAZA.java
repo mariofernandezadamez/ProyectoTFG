@@ -128,7 +128,7 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
 
         System.out.println("DNI:"+Usuario+ " Hora de Entrada:"+EntradaHora+ " Hora de salida:"+ EntradaSalida+"Matricula" + matricula + " Coste total:"+ CosteTotal);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/modificacion_perfil.php?num_documento=" + Usuario, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/ModificarReserva.php?num_documento=" + Usuario, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("Reserva modificada")){

@@ -104,7 +104,7 @@ public class RESERVA_PLAZA extends AppCompatActivity {
     }
 
     private void cargarMatriculas(String numDocumento) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/matriculas.php?num_documento=" + numDocumento, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/matriculas.php?num_documento=" + numDocumento, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -179,7 +179,7 @@ public class RESERVA_PLAZA extends AppCompatActivity {
 
     private void realizarReserva(String plaza, String planta) {
         if (horaEntradaSeleccionada != null && horaSalidaSeleccionada != null) {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/verificar_reserva.php", new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/verificar_reserva.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.equals("1")) {

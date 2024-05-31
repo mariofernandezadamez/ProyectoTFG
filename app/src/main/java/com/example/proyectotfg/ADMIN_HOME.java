@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class ADMIN_HOME extends AppCompatActivity {
     ImageButton imv;
@@ -24,12 +23,12 @@ public class ADMIN_HOME extends AppCompatActivity {
     }
 
     public void btn_graficos(View view){
-        Intent i = new Intent(this, GRAFICOS.class);
+        Intent i = new Intent(this, GRAF_BARRAS_PLANTAS.class);
         startActivity(i);
     }
 
     public void btn_modificacion(View view){
-        Intent i = new Intent(this, MODIFICACION_PLAZA.class);
+        Intent i = new Intent(this, PARKING_ADMIN_P1.class);
         startActivity(i);
     }
 }

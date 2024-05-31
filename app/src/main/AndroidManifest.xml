@@ -16,7 +16,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".GRAFICOS"
+            android:name=".GRAF_BARRAS_PLANTAS"
+            android:exported="false" />
+        <activity
+            android:name=".GRAF_PASTEL"
             android:exported="false" />
         <activity
             android:name=".PARKING_ADMIN_P3"
