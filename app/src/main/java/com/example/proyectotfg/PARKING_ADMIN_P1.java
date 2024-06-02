@@ -2,6 +2,7 @@ package com.example.proyectotfg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -12,6 +13,11 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parking_admin_p1);
 
+    }
+
+    public void botones(View view){
+        Intent i = new Intent(this, MODIFICACION_PLAZA.class);
+        startActivity(i);
     }
 
     public void btn_1(View view){
