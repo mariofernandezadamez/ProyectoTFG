@@ -23,7 +23,7 @@ public class ADMIN_HOME extends AppCompatActivity {
     }
 
     public void btn_graficos(View view){
-        Intent i = new Intent(this, GRAF_BARRAS_PLANTAS.class);
+        Intent i = new Intent(this, MENU_GRAFICOS.class);
         startActivity(i);
     }
 

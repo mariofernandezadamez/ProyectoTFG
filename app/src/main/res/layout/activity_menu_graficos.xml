@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MENU_GRAFICOS">
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/foto_parkingss"></ImageView>
+
+    <View
+        android:id="@+id/view20"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"></View>
+
+    <View
+        android:id="@+id/view21"
+        android:layout_width="317dp"
+        android:layout_height="346dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="170dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#AEBAD2E1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.578" />
+
+    <TextView
+        android:id="@+id/titulo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/black_ops_one"
+        android:text="APARCAFACIL"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.633"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.026" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="110dp"
+        android:text="Menu de gráficos"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.199" />
+
+    <Button
+        android:id="@+id/btn_plazas2"
+        android:layout_width="224dp"
+        android:layout_height="71dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="@color/azulillo"
+        android:onClick="grafico_pastel"
+        android:text="Disponibilidad del Parking"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
+
+    <Button
+        android:id="@+id/btn_plazas3"
+        android:layout_width="224dp"
+        android:layout_height="71dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="310dp"
+        android:backgroundTint="@color/azulillo"
+        android:onClick="grafico_barras"
+        android:text="Disponibilidad por Planta"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
+
+    <Button
+        android:id="@+id/btn_plazas4"
+        android:layout_width="224dp"
+        android:layout_height="71dp"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="420dp"
+        android:backgroundTint="@color/azulillo"
+        android:onClick="btn_modificacion"
+        android:text="Reservas X tiempo"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42" />
+
+</RelativeLayout>
