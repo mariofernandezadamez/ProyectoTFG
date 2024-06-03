@@ -41,6 +41,7 @@
             android:layout_width="96dp"
             android:layout_height="67dp"
             android:background="@drawable/ovalo"
+            android:onClick="cambioPestaña3_P1"
             android:text="Planta 1"
             tools:layout_editor_absoluteX="76dp"
             tools:layout_editor_absoluteY="19dp" />
@@ -50,6 +51,7 @@
             android:layout_width="94dp"
             android:layout_height="67dp"
             android:background="@drawable/ovalo"
+            android:onClick="cambioPestaña3_P2"
             android:text="Planta 2"
             tools:layout_editor_absoluteX="171dp"
             tools:layout_editor_absoluteY="19dp" />

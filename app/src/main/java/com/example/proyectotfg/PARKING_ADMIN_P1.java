@@ -15,12 +15,19 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
 
     }
 
+    public void cambioPestaña1_P2(View view){
+        Intent i = new Intent(this, PARKING_ADMIN_P2.class);
+        startActivity(i);
+    }
+
+    public void cambioPestaña1_P3(View view){
+        Intent i = new Intent(this, PARKING_ADMIN_P3.class);
+        startActivity(i);
+    }
+
     public void botones(View view){
         Intent i = new Intent(this, MODIFICACION_PLAZA.class);
         startActivity(i);
     }
 
-    public void btn_1(View view){
-
-    }
 }
