@@ -30,8 +30,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PARKING_USUARIOS_P2 extends AppCompatActivity {
-
-    private static final int REQUEST_CODE_RESERVA = 1;
     Button  btn_planta1, btn_planta2, btn_planta3, btn_disponible1, btn_disponible2, btn_disponible3, btn_disponible4, btn_disponible5, btn_disponible6, btn_disponible7, btn_disponible8, btn_disponible9,
             btn_disponible10, btn_disponible11, btn_disponible12, btn_disponible13, btn_disponible14, btn_disponible15, btn_disponible16;
 
@@ -40,7 +38,6 @@ public class PARKING_USUARIOS_P2 extends AppCompatActivity {
     String num_documento = "";
     String planta= "";
     String plaza = "";
-
     PARKING_UTIL pkUtil = new PARKING_UTIL();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,26 +73,31 @@ public class PARKING_USUARIOS_P2 extends AppCompatActivity {
             num_documento = intent.getStringExtra("num_documento");
         }
     }
+
     public void perfil2 (View view){
         Intent i = new Intent(this, PERFIL_USUARIO.class);
         rellenar_perfil();
         startActivity(i);
     }
+
     public void planta1_2 (View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
         i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
+
     public void planta2_2 (View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P2.class);
         i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
+
     public void planta3_2 (View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P3.class);
         i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
+
     public void reservas_2 (View view){
         Intent i = new Intent(this, RESERVA_PLAZA.class);
         i.putExtra("num_documento", num_documento);
@@ -104,15 +106,6 @@ public class PARKING_USUARIOS_P2 extends AppCompatActivity {
         i.putExtra("numero_planta", planta);
         startActivity(i);
     }
-
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_RESERVA && resultCode == RESULT_OK) {
-            // Si se devuelve un resultado exitoso desde RESERVA_PLAZA, actualiza el estado de las plazas
-            obtenerEstadoPlazas();
-        }
-    }*/
 
     public void rellenar_perfil() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
@@ -162,7 +155,6 @@ public class PARKING_USUARIOS_P2 extends AppCompatActivity {
             }
         }
     }
-
 
     private int getPlazaButtonId(int numPlaza) {
         String buttonIdName = "usuariosBTNdispo" + String.format("%02d", numPlaza) + "P2";
