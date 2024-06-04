@@ -39,6 +39,7 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
     String planta= "";
     String plaza = "";
     RequestQueue requestQueue;
+    PARKING_UTIL pkUtil = new PARKING_UTIL();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,15 +65,14 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
         btn_disponible15 = findViewById(R.id.usuariosBTNdispo15P3);
         btn_disponible16 = findViewById(R.id.usuariosBTNdispo16P3);
 
-        obtenerEstadoPlazas();
-        requestQueue = Volley.newRequestQueue(this);
+        pkUtil.obtenerEstadoPlazaPlanta3(this,"3",this);
+
         System.out.println("Número de documento: " + num_documento);
 
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("num_documento")) {
             num_documento = intent.getStringExtra("num_documento");
         }
-        System.out.println("Número de documento: " + num_documento);
     }
     public void perfil3 (View view){
         Intent i = new Intent(this, PERFIL_USUARIO.class);
@@ -81,14 +81,17 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
     }
     public void planta1_3 (View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
+        i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
     public void planta2_3 (View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P2.class);
+        i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
     public void planta3_3 (View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P3.class);
+        i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
     public void reservas_3 (View view){
@@ -100,14 +103,14 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
         startActivity(i);
     }
 
-    @Override
+    /*@Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_RESERVA && resultCode == RESULT_OK) {
             // Si se devuelve un resultado exitoso desde RESERVA_PLAZA, actualiza el estado de las plazas
             obtenerEstadoPlazas();
         }
-    }
+    }*/
 
     public void rellenar_perfil() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
@@ -140,46 +143,33 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-
-    private void obtenerEstadoPlazas() {
-        StringRequest request = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/verificar_reserva.php", new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONArray jsonArray = new JSONArray(response);
-
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        int numPlaza = jsonObject.getInt("num_plaza");
-                        boolean disponible = jsonObject.getBoolean("disponible");
-
-                        updateUIForPlaza(numPlaza, disponible);
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Error al parsear JSON", Toast.LENGTH_SHORT).show();
+    public void updateUIWithPlazas(Map<String, String> plazasDisponibles) {
+        for (Map.Entry<String, String> entry : plazasDisponibles.entrySet()) {
+            int numPlaza = getPlazaButtonId(Integer.parseInt(entry.getKey()));
+            Button plazaButton = findViewById(numPlaza);
+            if (plazaButton != null) {
+                if ("1".equals(entry.getValue())) {
+                    plazaButton.setBackgroundColor(Color.GREEN);
+                    plazaButton.setClickable(true);
+                } else {
+                    plazaButton.setBackgroundColor(Color.RED);
+                    plazaButton.setClickable(false);
                 }
+            } else {
+                Log.e("UI Update", "Button ID not found for plaza number: " + numPlaza);
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Error: " + error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("numero_planta", "1");
-                return params;
-            }
-        };
-
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(request);
+        }
     }
 
 
+    private int getPlazaButtonId(int numPlaza) {
+        String buttonIdName = "usuariosBTNdispo" + String.format("%02d", numPlaza) + "P3";
+        int id = getResources().getIdentifier(buttonIdName, "id", getPackageName());
+        if (id == 0) {
+            Log.e("getPlazaButtonId", "Button ID not found for plaza number: " + numPlaza + " with name: " + buttonIdName);
+        }
+        return id;
+    }
 
     public void obtenerPlazaPlanta(View view) {
         int id = view.getId();
@@ -190,31 +180,5 @@ public class PARKING_USUARIOS_P3 extends AppCompatActivity {
         planta = nombreRecurso.substring(nombreRecurso.length() - 1);
 
         System.out.println("Plaza: " + plaza + ", Planta: " + planta);
-    }
-
-    private void updateUIForPlaza(int numPlaza, boolean disponible) {
-        int plazaButtonId = getPlazaButtonId(numPlaza);
-        Button plazaButton = findViewById(plazaButtonId);
-
-        if (plazaButton != null) {
-            if (disponible) {
-                // Plaza disponible
-                plazaButton.setBackgroundColor(Color.GREEN);
-                plazaButton.setClickable(true);
-            } else {
-                // Plaza no disponible
-                plazaButton.setBackgroundColor(Color.RED);
-                plazaButton.setClickable(false);
-            }
-        } else {
-            Log.e("UI Update", "Button ID not found for plaza number: " + numPlaza);
-        }
-    }
-
-
-    private int getPlazaButtonId(int numPlaza) {
-        // Genera el nombre del ID del botón basado en el número de plaza
-        String buttonIdName = "usuariosBTNdispo" + String.format("%02d", numPlaza) + "P1";
-        return getResources().getIdentifier(buttonIdName, "id", getPackageName());
     }
 }

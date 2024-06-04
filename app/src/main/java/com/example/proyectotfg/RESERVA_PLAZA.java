@@ -1,11 +1,8 @@
 package com.example.proyectotfg;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -32,12 +29,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class RESERVA_PLAZA extends AppCompatActivity {
     TextView Txtusuario, costetiempo;
-    RequestQueue requestQueue;
     Spinner spmatriculas;
     Button btnHoraEntrada;
     Button btnHoraSalida;
@@ -68,7 +63,6 @@ public class RESERVA_PLAZA extends AppCompatActivity {
 
         Intent intent = getIntent();
         num_documento = intent.getStringExtra("num_documento");
-
         plazaSeleccionada = intent.getStringExtra("plaza");
         plantaSeleccionada = intent.getStringExtra("numero_planta");
 
@@ -91,11 +85,14 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         spmatriculas.setAdapter(spinnerAdapter);
         cargarMatriculas(num_documento);
 
+
         btnReservar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (plazaSeleccionada != null && plantaSeleccionada != null) {
                     realizarReserva(plazaSeleccionada, plantaSeleccionada);
+                    /*Intent i = new Intent(RESERVA_PLAZA.this, PARKING_USUARIOS_P1.class);
+                    startActivity(i);*/
                 } else {
                     Toast.makeText(getApplicationContext(), "Por favor, seleccione una plaza.", Toast.LENGTH_SHORT).show();
                 }
@@ -104,7 +101,7 @@ public class RESERVA_PLAZA extends AppCompatActivity {
     }
 
     private void cargarMatriculas(String numDocumento) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/matriculas.php?num_documento=" + numDocumento, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/matriculas.php?num_documento=" + numDocumento, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -178,14 +175,13 @@ public class RESERVA_PLAZA extends AppCompatActivity {
     }
 
     private void realizarReserva(String plaza, String planta) {
-        if (horaEntradaSeleccionada != null && horaSalidaSeleccionada != null) {
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/verificar_reserva.php", new Response.Listener<String>() {
+        if (!horaEntradaSeleccionada.isEmpty() && !horaSalidaSeleccionada.isEmpty()) {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/verificar_reserva.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     if (response.equals("1")) {
                         Toast.makeText(getApplicationContext(), "Plaza no disponible en el rango de tiempo seleccionado", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Continuar con la reserva porque la plaza está disponible
                         int horaEntrada = Integer.parseInt(horaEntradaSeleccionada.split(":")[0]);
                         int minutoEntrada = Integer.parseInt(horaEntradaSeleccionada.split(":")[1]);
                         int horaSalida = Integer.parseInt(horaSalidaSeleccionada.split(":")[0]);
@@ -205,9 +201,9 @@ public class RESERVA_PLAZA extends AppCompatActivity {
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
-                                rellenar_plaza();
-                                // Actualizar la interfaz para mostrar la plaza como no disponible
-                                updateUIForPlaza(Integer.parseInt(plaza), false);
+                                Intent i = new Intent(RESERVA_PLAZA.this, PARKING_USUARIOS_P1.class);
+                                i.putExtra("num_documento", num_documento);
+                                startActivity(i);
                             }
                         }, new Response.ErrorListener() {
                             @Override
@@ -228,7 +224,7 @@ public class RESERVA_PLAZA extends AppCompatActivity {
                                 return parametros;
                             }
                         };
-                        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                        RequestQueue requestQueue = Volley.newRequestQueue(RESERVA_PLAZA.this); // Cambio aquí
                         requestQueue.add(reservaRequest);
                     }
                 }
@@ -249,76 +245,19 @@ public class RESERVA_PLAZA extends AppCompatActivity {
                 }
             };
 
-            Intent resultIntent = new Intent();
-            setResult(Activity.RESULT_OK, resultIntent);
-            finish();
-
-            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            RequestQueue requestQueue = Volley.newRequestQueue(RESERVA_PLAZA.this); // Cambio aquí
             requestQueue.add(stringRequest);
         } else {
             Toast.makeText(getApplicationContext(), "Por favor, seleccione la hora de entrada y salida.", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void updateUIForPlaza(int numPlaza, boolean disponible) {
-        int plazaButtonId = getPlazaButtonId(numPlaza);
-        Button plazaButton = findViewById(plazaButtonId);
-
-        if (plazaButton != null) {
-            if (disponible) {
-                plazaButton.setBackgroundColor(Color.GREEN);
-                plazaButton.setClickable(true);
-            } else {
-                plazaButton.setBackgroundColor(Color.RED);
-                plazaButton.setClickable(false);
-            }
-        } else {
-            Log.e("UI Update", "Button ID not found for plaza number: " + numPlaza);
-        }
-    }
-
-    private int getPlazaButtonId(int numPlaza) {
-        String buttonIdName = "usuariosBTNdispo" + String.format("%02d", numPlaza) + "P1";
-        return getResources().getIdentifier(buttonIdName, "id", getPackageName());
-    }
-
-
     private double calcularCostoTiempo(int horas, int minutos) {
         double precioPorHora = 10.0;
         int totalMinutos = horas * 60 + minutos;
         return precioPorHora * (totalMinutos / 60.0);
     }
-
-    public void rellenar_plaza() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bd/mostrarDatosReserva.php?num_documento=" + num_documento, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-                String[] partes_conjuntas = response.split("\\|");
-
-                String msg_valor = partes_conjuntas[1];
-                String msg_valor_2 = partes_conjuntas[3];
-                String msg_valor_3 = partes_conjuntas[5];
-                String msg_valor_4 = partes_conjuntas[7];
-                String msg_valor_5 = partes_conjuntas[9];
-
-                Intent intent = new Intent(RESERVA_PLAZA.this, MODIFICACION_PLAZA.class);
-                intent.putExtra("usuarios_num_documento", msg_valor);
-                intent.putExtra("hora_entrada",msg_valor_2);
-                intent.putExtra("hora_salida",msg_valor_3);
-                intent.putExtra("matricula",msg_valor_4);
-                intent.putExtra("coste_tiempo",msg_valor_5);
-                startActivity(intent);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Error"+ error.getMessage() ,Toast.LENGTH_SHORT).show();
-            }
-        });
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-
 }
+
+
 
