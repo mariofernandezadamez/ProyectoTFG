@@ -16,6 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".GRAF_LINEAL_2"
+            android:exported="false" />
+        <activity
+            android:name=".GRAF_LINEAL"
+            android:exported="false" />
+        <activity
             android:name=".MENU_GRAFICOS"
             android:exported="false" />
         <activity

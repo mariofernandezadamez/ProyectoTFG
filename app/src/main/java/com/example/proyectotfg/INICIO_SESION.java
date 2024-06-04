@@ -63,9 +63,10 @@ public class INICIO_SESION extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "El número de documento está vacío", Toast.LENGTH_SHORT).show();
                 return;
             }
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/inicio_sesion.php", new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+
                     String[] partes_respuesta = response.split("\\|");
                     String msg_Inicio_Sesion = partes_respuesta[0];
                     String msg_rolUsuario = partes_respuesta[1];
@@ -89,7 +90,7 @@ public class INICIO_SESION extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(), "Error"+error.getMessage() ,Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error "+error.getMessage() ,Toast.LENGTH_SHORT).show();
                 }
             }){
                 protected  Map<String,String> getParams() throws AuthFailureError{

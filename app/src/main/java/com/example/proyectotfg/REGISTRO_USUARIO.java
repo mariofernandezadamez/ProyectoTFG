@@ -46,7 +46,6 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
 
         btnatras = findViewById(R.id.btnatras4);
         btnatras.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
             }
@@ -55,19 +54,89 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
     }
 
     public void registrobtn(View view){
-        Intent i = new Intent(this, INICIO_SESION.class);
-        ejecutarServicio();
-        startActivity(i);
+        if (comp_campos_vacios()) {
+            Toast.makeText(this, "Completa todos los campos obligatorios", Toast.LENGTH_SHORT).show();
+        }else if (!comp_dni(etxt_Dni.getText().toString())){
+            Toast.makeText(this, "Formato del DNI invalido", Toast.LENGTH_SHORT).show();
+        }else if (!comp_matricula(etxt_Matricula_principal.getText().toString())) {
+            Toast.makeText(this, "Formato de la Matrícula principal invalido", Toast.LENGTH_SHORT).show();
+        } else if (etxt_Matricula_secundaria.getText().toString().isEmpty()) {
+            if (!comp_matricula(etxt_Matricula_secundaria.getText().toString())){
+                Toast.makeText(this, "Formato de la Matrícula secundaria invalido", Toast.LENGTH_SHORT).show();
+            }
+    }else {
+            Toast.makeText(this, "Todos lo campos son validos", Toast.LENGTH_SHORT).show();
+            ejecutarServicio();
+        }
     }
 
+    public boolean comp_campos_vacios(){
+        String dni = etxt_Dni.getText().toString().trim();
+        String usuario = etxt_Usuario.getText().toString().trim();
+        String contrasena = etxt_Contrasena.getText().toString().trim();
+        String matriculaPrincipal = etxt_Matricula_principal.getText().toString().trim();
+
+        return dni.isEmpty() || usuario.isEmpty() || contrasena.isEmpty() || matriculaPrincipal.isEmpty();
+    }
+
+    public boolean comp_dni(String dni){
+
+        if (dni.length() != 9){
+            return false;
+        }
+
+        String num_dni = dni.substring(0,8);
+        try {
+            int num_dni_final = Integer.parseInt(num_dni);
+        }catch (NumberFormatException e){
+            return false;
+        }
+
+
+        String letra_dni = dni.substring(8);
+        if ((letra_dni.contains("a")||letra_dni.contains("e")|| letra_dni.contains("i")||letra_dni.contains("o")||letra_dni.contains("u")||
+                letra_dni.contains("1")||letra_dni.contains("2")||letra_dni.contains("3")||letra_dni.contains("4")|| letra_dni.contains("5")||
+                letra_dni.contains("6")||letra_dni.contains("7")||letra_dni.contains("8")||letra_dni.contains("9")||letra_dni.contains("0")) || letra_dni.equals(letra_dni.toLowerCase())){
+            return false;
+        }
+
+        return true;
+    }
+
+   public boolean comp_matricula(String matricula){
+
+        if (matricula.length() != 7){
+            return false;
+        }
+
+        String num_matricula = matricula.substring(0,4);
+        try {
+            int num_matricula_final = Integer.parseInt(num_matricula);
+        }catch (NumberFormatException e){
+            return false;
+        }
+
+        String letras_matricula = matricula.substring(4,7);
+       if ((letras_matricula.contains("a") || letras_matricula.contains("e") || letras_matricula.contains("i") || letras_matricula.contains("o") || letras_matricula.contains("u") ||
+               letras_matricula.contains("1") || letras_matricula.contains("2") || letras_matricula.contains("3") || letras_matricula.contains("4") || letras_matricula.contains("5") ||
+               letras_matricula.contains("6") || letras_matricula.contains("7") || letras_matricula.contains("8") || letras_matricula.contains("9") || letras_matricula.contains("0")) || letras_matricula.equals(letras_matricula.toLowerCase())){
+           return false;
+       }
+
+       return true;
+    }
 
     private void ejecutarServicio(){
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/registro.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/insertado_registro.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
-                Toast.makeText(getApplicationContext(), "Usuario registrado", Toast.LENGTH_SHORT).show();
+                if (response.contains("El usuario ya existe en la BBDD")) {
+                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(REGISTRO_USUARIO.this, INICIO_SESION.class);
+                    startActivity(i);
+                }
             }
         }, new Response.ErrorListener() {
             @Override

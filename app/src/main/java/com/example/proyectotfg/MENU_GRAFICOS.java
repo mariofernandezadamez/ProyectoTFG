@@ -25,8 +25,8 @@ public class MENU_GRAFICOS extends AppCompatActivity {
     }
 
     public void grafico_linear(View view){
-        //Intent i = new Intent(this, GRAF_BARRAS_PLANTAS.class);
-        //startActivity(i);
+        Intent i = new Intent(this, GRAF_LINEAL.class);
+        startActivity(i);
     }
 }
 
