@@ -54,7 +54,7 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
         coche = findViewById(R.id.PlainTextCOCHE);
 
         Intent intent1 = getIntent();
-        if (intent1.hasExtra("num_documento")) {
+        if (intent1.hasExtra("usuarios_num_documento")) {
             String num_documento = intent1.getStringExtra("usuarios_num_documento");
             String hora_entrada = intent1.getStringExtra("hora_entrada");
             String hora_salida = intent1.getStringExtra("hora_salida");
