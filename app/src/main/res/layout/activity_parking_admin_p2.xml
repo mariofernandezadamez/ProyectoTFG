@@ -32,16 +32,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="71dp"
-            android:layout_weight="1"
-            android:backgroundTint="#00FFFFFF"
-            android:src="@android:drawable/btn_star"
-            android:tint="#00000000"
-            tools:src="@drawable/usuario__4_32px" />
-
         <Button
             android:id="@+id/AdminPlanta1P3"
             android:layout_width="96dp"
@@ -73,7 +63,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/adminBTNdispo9P2"
+        android:id="@+id/adminBTNdispo09P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -185,7 +175,7 @@
         app:layout_constraintVertical_bias="0.972" />
 
     <Button
-        android:id="@+id/adminBTNdispo1P2"
+        android:id="@+id/adminBTNdispo01P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -199,7 +189,7 @@
         app:layout_constraintVertical_bias="0.211" />
 
     <Button
-        android:id="@+id/adminBTNdispo2P2"
+        android:id="@+id/adminBTNdispo02P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -213,7 +203,7 @@
         app:layout_constraintVertical_bias="0.319" />
 
     <Button
-        android:id="@+id/adminBTNdispo3P2"
+        android:id="@+id/adminBTNdispo03P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -227,7 +217,7 @@
         app:layout_constraintVertical_bias="0.423" />
 
     <Button
-        android:id="@+id/adminBTNdispo4P2"
+        android:id="@+id/adminBTNdispo04P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -241,7 +231,7 @@
         app:layout_constraintVertical_bias="0.537" />
 
     <Button
-        android:id="@+id/adminBTNdispo5P2"
+        android:id="@+id/adminBTNdispo05P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -255,7 +245,7 @@
         app:layout_constraintVertical_bias="0.646" />
 
     <Button
-        android:id="@+id/adminBTNdispo6P2"
+        android:id="@+id/adminBTNdispo06P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -269,7 +259,7 @@
         app:layout_constraintVertical_bias="0.754" />
 
     <Button
-        android:id="@+id/adminBTNdispo7P2"
+        android:id="@+id/adminBTNdispo07P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -283,7 +273,7 @@
         app:layout_constraintVertical_bias="0.865" />
 
     <Button
-        android:id="@+id/adminBTNdispo8P2"
+        android:id="@+id/adminBTNdispo08P2"
         android:layout_width="129dp"
         android:layout_height="54dp"
         android:backgroundTint="@android:color/holo_green_dark"
@@ -295,4 +285,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.972" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLANTA 2"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
 </androidx.constraintlayout.widget.ConstraintLayout>
