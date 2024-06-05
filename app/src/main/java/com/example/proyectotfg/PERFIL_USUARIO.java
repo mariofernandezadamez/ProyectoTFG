@@ -125,7 +125,7 @@ public class PERFIL_USUARIO extends AppCompatActivity {
 
         System.out.println("Num_doc:"+num_documentos_mod+ " usuario:"+usuario_mod+ " contra:"+ contrasena_mod+ " mat_1:"+ matricula_1_mod+ " mat_2:"+matricula_2_mod );
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/modificacion_perfil.php?num_documento=" + num_documentos_mod, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.73.1/bbdd_tfg/modificacion_perfil.php?num_documento=" + num_documentos_mod, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("Usuario modificado")){

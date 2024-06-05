@@ -9,6 +9,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.util.Map;
 
@@ -17,6 +25,9 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
             btn_disponible10, btn_disponible11, btn_disponible12, btn_disponible13, btn_disponible14, btn_disponible15, btn_disponible16;
     String planta= "";
     String plaza = "";
+    String num_documento = "";
+    String nombreRecurso = "";
+    RequestQueue requestQueue;
     PARKING_UTIL pkUtil = new PARKING_UTIL();
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,25 +54,33 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
         btn_disponible15 = findViewById(R.id.AdminBTNdispo15P1);
         btn_disponible16 = findViewById(R.id.AdminBTNdispo16P1);
         pkUtil.obtenerEstadoPlazaPlantaAdmin1(this,"1",this);
+        System.out.println("Número de documento: " + num_documento);
     }
 
     public void cambioPestaña1_P2(View view){
         Intent i = new Intent(this, PARKING_ADMIN_P2.class);
+        i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
 
     public void cambioPestaña1_P3(View view){
         Intent i = new Intent(this, PARKING_ADMIN_P3.class);
+        i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
 
+    /*
     public void botones(View view){
         Intent i = new Intent(this, MODIFICACION_PLAZA.class);
+        i.putExtra("num_documento", num_documento);
         obtenerPlazaPlanta(view);
         i.putExtra("plaza", plaza);
         i.putExtra("numero_planta", planta);
         startActivity(i);
     }
+    050
+     */
+
     public void updateUIWithPlazas(Map<String, String> plazasDisponibles) {
         for (Map.Entry<String, String> entry : plazasDisponibles.entrySet()) {
             int numPlaza = getPlazaButtonId(Integer.parseInt(entry.getKey()));
@@ -69,10 +88,10 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
             if (plazaButton != null) {
                 if ("1".equals(entry.getValue())) {
                     plazaButton.setBackgroundColor(Color.GREEN);
-                    plazaButton.setClickable(true);
+                    plazaButton.setClickable(false);
                 } else {
                     plazaButton.setBackgroundColor(Color.RED);
-                    plazaButton.setClickable(false);
+                    plazaButton.setClickable(true);
                 }
             } else {
                 Log.e("UI Update", "Button ID not found for plaza number: " + numPlaza);
@@ -91,12 +110,79 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
 
     public void obtenerPlazaPlanta(View view) {
         int id = view.getId();
-
-        String nombreRecurso = getResources().getResourceEntryName(id);
-
+        nombreRecurso = getResources().getResourceEntryName(id);
         plaza = nombreRecurso.substring(nombreRecurso.length() - 4, nombreRecurso.length() - 2);
         planta = nombreRecurso.substring(nombreRecurso.length() - 1);
 
         System.out.println("Plaza: " + plaza + ", Planta: " + planta);
     }
+
+    public String obtenerPlaza(View view) {
+        int id = view.getId();
+        String nombreRecurso = getResources().getResourceEntryName(id);
+
+        plaza = nombreRecurso.substring(nombreRecurso.length() - 4, nombreRecurso.length() - 2);
+        planta = nombreRecurso.substring(nombreRecurso.length() - 1);
+
+        // Formatear el número de plaza para asegurarse de que tenga dos dígitos
+        plaza = String.format("%02d", Integer.parseInt(plaza));
+
+        System.out.println("Plaza: " + plaza + ", Planta: " + planta);
+
+        return plaza;
+    }
+
+    public String obtenerPlanta(View view) {
+        int id = view.getId();
+        String nombreRecurso = getResources().getResourceEntryName(id);
+
+        plaza = nombreRecurso.substring(nombreRecurso.length() - 4, nombreRecurso.length() - 2);
+        planta = nombreRecurso.substring(nombreRecurso.length() - 1);
+
+        // Formatear el número de plaza para asegurarse de que tenga dos dígitos
+        plaza = String.format("%02d", Integer.parseInt(plaza));
+
+        System.out.println("Plaza: " + plaza + ", Planta: " + planta);
+
+        return planta;
+    }
+
+    public void rellenar_plaza(View view) {
+        String plazaSeleccionada = obtenerPlaza(view);
+        String plantaSeleccionada = obtenerPlanta(view);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.73.1/bbdd_tfg/mostrarDatosReserva.php?plaza=" + plazaSeleccionada + "&numero_planta=" + plantaSeleccionada, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                String[] partes_conjuntas = response.split("\\|");
+
+                String msg_valor = partes_conjuntas[1];
+                String msg_valor_2 = partes_conjuntas[3];
+                String msg_valor_3 = partes_conjuntas[5];
+                String msg_valor_4 = partes_conjuntas[7];
+                String msg_valor_5 = partes_conjuntas[9];
+
+                Intent intent = new Intent(PARKING_ADMIN_P1.this, MODIFICACION_PLAZA.class);
+                intent.putExtra("num_documento", num_documento);
+                obtenerPlazaPlanta(view);
+                intent.putExtra("plaza", plaza);
+                intent.putExtra("numero_planta", planta);
+                intent.putExtra("usuarios_num_documento", msg_valor);
+                intent.putExtra("hora_entrada",msg_valor_2);
+                intent.putExtra("hora_salida",msg_valor_3);
+                intent.putExtra("matricula",msg_valor_4);
+                intent.putExtra("coste_tiempo",msg_valor_5);
+                intent.putExtra("idBoton", nombreRecurso);
+                startActivity(intent);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "Error"+ error.getMessage() ,Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
 }
