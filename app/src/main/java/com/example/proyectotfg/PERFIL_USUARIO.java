@@ -3,10 +3,12 @@ package com.example.proyectotfg;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.PixelCopy;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,23 +26,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PERFIL_USUARIO extends AppCompatActivity {
-    ImageButton imgbtnatras;
+    Button btnatras;
     TextView txt_dni;
     EditText etxt_usuario;
     EditText etxt_contraseña;
     EditText etxt_matricula_principal;
     EditText Etxt_matricula_secundaria;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
-        imgbtnatras = findViewById(R.id.btnatras3);
         txt_dni = findViewById(R.id.TextVievUsuario);
         etxt_usuario = findViewById(R.id.PEEditTextUsuario);
         etxt_contraseña = findViewById(R.id.PEEditTextContraseña);
         etxt_matricula_principal = findViewById(R.id.PEEditTextMatriculaprin);
         Etxt_matricula_secundaria = findViewById(R.id.PEEditTextMatriculasecun1);
+        btnatras = findViewById(R.id.btnatrasperfil);
 
         Intent intent1 = getIntent();
         if (intent1.hasExtra("num_documento")) {
@@ -122,7 +125,7 @@ public class PERFIL_USUARIO extends AppCompatActivity {
 
         System.out.println("Num_doc:"+num_documentos_mod+ " usuario:"+usuario_mod+ " contra:"+ contrasena_mod+ " mat_1:"+ matricula_1_mod+ " mat_2:"+matricula_2_mod );
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/modificacion_perfil.php?num_documento=" + num_documentos_mod, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/modificacion_perfil.php?num_documento=" + num_documentos_mod, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("Usuario modificado")){

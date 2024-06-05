@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -25,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class REGISTRO_USUARIO extends AppCompatActivity {
-    ImageButton btnatras;
+    Button btnatras;
     EditText etxt_Dni;
     EditText etxt_Usuario;
     EditText etxt_Contrasena;
@@ -43,14 +44,7 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
         etxt_Contrasena = findViewById(R.id.REEditTextContraseña);
         etxt_Matricula_principal = findViewById(R.id.REEditTextMatriculaprin);
         etxt_Matricula_secundaria = findViewById(R.id.REEditTextMatriculasecun1);
-
-        btnatras = findViewById(R.id.btnatras4);
-        btnatras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-
-        });
+        btnatras = findViewById(R.id.btnatrasregistro);
     }
 
     public void registrobtn(View view){
@@ -70,6 +64,10 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
         }
     }
 
+    public void atrasregistro(View view){
+        Intent i = new Intent(this, INICIO_SESION.class);
+        startActivity(i);
+    }
     public boolean comp_campos_vacios(){
         String dni = etxt_Dni.getText().toString().trim();
         String usuario = etxt_Usuario.getText().toString().trim();
@@ -127,7 +125,7 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
     }
 
     private void ejecutarServicio(){
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/insertado_registro.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/insertado_registro.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("El usuario ya existe en la BBDD")) {
