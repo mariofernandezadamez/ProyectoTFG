@@ -64,7 +64,55 @@ public class PERFIL_USUARIO extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void modificacion_usuario(View view){
+    public void btn_modificar(View view){
+        if (comp_campos_vacios()){
+            Toast.makeText(this, "Completa todos los campos obligatorios", Toast.LENGTH_SHORT).show();
+        } else if (!comp_matricula(etxt_matricula_principal.getText().toString())) {
+            Toast.makeText(this, "Formato de la Matrícula principal invalido", Toast.LENGTH_SHORT).show();
+        } else if (etxt_matricula_principal.getText().toString().isEmpty()) {
+            if (!comp_matricula(Etxt_matricula_secundaria.getText().toString())) {
+                Toast.makeText(this, "Formato de la Matrícula secundaria invalido", Toast.LENGTH_SHORT).show();
+            }
+        }else {
+            Toast.makeText(this, "Todos lo campos son validos", Toast.LENGTH_SHORT).show();
+            modificacion_usuario();
+        }
+
+    }
+
+    public boolean comp_campos_vacios(){
+
+        String usuario = etxt_usuario.getText().toString().trim();
+        String contrasena = etxt_contraseña.getText().toString().trim();
+        String matriculaPrincipal = etxt_matricula_principal.getText().toString().trim();
+
+        return usuario.isEmpty() || contrasena.isEmpty() || matriculaPrincipal.isEmpty();
+    }
+
+    public boolean comp_matricula(String matricula){
+
+        if (matricula.length() != 7){
+            return false;
+        }
+
+        String num_matricula = matricula.substring(0,4);
+        try {
+            int num_matricula_final = Integer.parseInt(num_matricula);
+        }catch (NumberFormatException e){
+            return false;
+        }
+
+        String letras_matricula = matricula.substring(4,7);
+        if ((letras_matricula.contains("a") || letras_matricula.contains("e") || letras_matricula.contains("i") || letras_matricula.contains("o") || letras_matricula.contains("u") ||
+                letras_matricula.contains("1") || letras_matricula.contains("2") || letras_matricula.contains("3") || letras_matricula.contains("4") || letras_matricula.contains("5") ||
+                letras_matricula.contains("6") || letras_matricula.contains("7") || letras_matricula.contains("8") || letras_matricula.contains("9") || letras_matricula.contains("0")) || letras_matricula.equals(letras_matricula.toLowerCase())){
+            return false;
+        }
+
+        return true;
+    }
+
+    public void modificacion_usuario(){
 
         String num_documentos_mod = txt_dni.getText().toString();
         String usuario_mod = etxt_usuario.getText().toString();
