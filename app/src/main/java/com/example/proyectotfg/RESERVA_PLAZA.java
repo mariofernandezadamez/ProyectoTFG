@@ -47,6 +47,8 @@ public class RESERVA_PLAZA extends AppCompatActivity {
     String num_documento;
     String plazaSeleccionada;
     String plantaSeleccionada;
+    TextView info;
+    String idBoton = "";
     RequestQueue requestQueue;
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
@@ -63,6 +65,8 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         spmatriculas = findViewById(R.id.spinnermatriculas);
         costetiempo = findViewById(R.id.costetiempo);
         atras = findViewById(R.id.btnatrasreserva);
+        info = findViewById(R.id.textViewnumplaza);
+        actualizarTexto();
 
         Intent intent = getIntent();
         num_documento = intent.getStringExtra("num_documento");
@@ -103,10 +107,29 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         });
     }
 
+    public void actualizarTexto(){
+        String miPlaza = plazaSeleccionada;
+        String miPlanta = plantaSeleccionada;
+
+        info.setText(miPlanta + " "+ miPlaza);
+
+    }
     public void atras(View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
         i.putExtra("num_documento", num_documento);
         startActivity(i);
+    }
+
+    public String obtenerPlazaMODIFICACION(String idBoton){
+        plazaSeleccionada = idBoton.substring(idBoton.length() - 4, idBoton.length() - 2);
+        plazaSeleccionada = String.format("%02d", Integer.parseInt(plazaSeleccionada));
+        return plazaSeleccionada;
+    }
+
+
+    public String obtenerPlantaMODIFICACION(String idBoton) {
+        plantaSeleccionada = idBoton.substring(idBoton.length() - 1);
+        return plantaSeleccionada;
     }
 
     private void cargarMatriculas(String numDocumento) {

@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.026" />
 
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/txtInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PLAZA 5B"
@@ -44,21 +44,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.733"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
-
-    <TextView
-        android:id="@+id/textView35"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reserva:"
-        android:textColor="#F8F8F8"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.271"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.115" />
@@ -74,7 +60,7 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.592">
+        app:layout_constraintVertical_bias="0.85">
 
         <LinearLayout
             android:layout_width="322dp"
@@ -98,13 +84,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.33" />
 
-            <EditText
-                android:id="@+id/PlainTextUsuario"
+            <TextView
+                android:id="@+id/txtUsuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="text" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -187,7 +171,7 @@
                 android:layout_width="352dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="¿Que coche deseas seleccionar?"
+                android:text="Modificar matricula:"
                 android:textSize="18sp" />
 
             <EditText

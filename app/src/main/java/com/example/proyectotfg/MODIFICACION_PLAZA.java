@@ -31,11 +31,12 @@ import java.util.Map;
 public class MODIFICACION_PLAZA extends AppCompatActivity {
 
 
+    TextView info;
     Button BtnHoraEntrada;
     Button BtnHoraSalida;
     TextView horaEntrada;
     TextView horaSalida;
-    EditText usuarioTexto;
+    TextView usuarioTexto;
     EditText costeTotal;
     String plaza = "";
     String plantaSeleccionada;
@@ -51,19 +52,21 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificacion_plaza);
 
+        info = findViewById(R.id.txtInfo);
         BtnHoraEntrada = findViewById(R.id.btnHoraEntrada1);
         BtnHoraSalida = findViewById(R.id.btnHoraSalida1);
         horaEntrada = findViewById(R.id.txtHoraEntrada);
         horaSalida = findViewById(R.id.txtHoraSalida);
-        usuarioTexto = findViewById(R.id.PlainTextUsuario);
+        usuarioTexto = findViewById(R.id.txtUsuario);
         costeTotal = findViewById(R.id.PlainTextCosteTotal);
         coche = findViewById(R.id.PlainTextCOCHE);
+
 
         Intent intente = getIntent();
         plaza = intente.getStringExtra("plaza");
         planta = intente.getStringExtra("numero_planta");
         idBoton = intente.getStringExtra("idBoton");
-
+        actualizarTexto();
         Intent intent1 = getIntent();
         if (intent1.hasExtra("usuarios_num_documento")) {
             String num_documento = intent1.getStringExtra("usuarios_num_documento");
@@ -94,6 +97,14 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
                 mostrarTimePicker(false);
             }
         });
+    }
+
+    public void actualizarTexto(){
+        String miPlaza = obtenerPlazaMODIFICACION(idBoton);
+        String miPlanta = obtenerPlantaMODIFICACION(idBoton);
+
+        info.setText("Planta " + miPlanta + ", Plaza "+ miPlaza);
+
     }
 
     public String obtenerPlazaMODIFICACION(String idBoton){

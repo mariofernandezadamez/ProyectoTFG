@@ -28,6 +28,7 @@ public class PARKING_USUARIOS_P1 extends AppCompatActivity {
     String num_documento = "";
     String planta= "";
     String plaza = "";
+    String idBoton = "";
     PARKING_UTIL pkUtil = new PARKING_UTIL();
 
     @SuppressLint("MissingInflatedId")

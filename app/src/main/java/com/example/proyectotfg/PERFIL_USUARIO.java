@@ -43,7 +43,6 @@ public class PERFIL_USUARIO extends AppCompatActivity {
         etxt_contraseña = findViewById(R.id.PEEditTextContraseña);
         etxt_matricula_principal = findViewById(R.id.PEEditTextMatriculaprin);
         Etxt_matricula_secundaria = findViewById(R.id.PEEditTextMatriculasecun1);
-        btnatras = findViewById(R.id.btnatrasperfil);
 
         Intent intent1 = getIntent();
         if (intent1.hasExtra("num_documento")) {
