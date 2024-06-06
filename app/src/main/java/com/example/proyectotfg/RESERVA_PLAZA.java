@@ -47,8 +47,6 @@ public class RESERVA_PLAZA extends AppCompatActivity {
     String plazaSeleccionada;
     String plantaSeleccionada;
     TextView info;
-    String idBoton = "";
-    RequestQueue requestQueue;
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -65,13 +63,13 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         costetiempo = findViewById(R.id.costetiempo);
         txtnumplaza = findViewById(R.id.textViewnumplaza);
         info = findViewById(R.id.textViewnumplaza);
-        actualizarTexto();
+
 
         Intent intent = getIntent();
         num_documento = intent.getStringExtra("num_documento");
         plazaSeleccionada = intent.getStringExtra("plaza");
         plantaSeleccionada = intent.getStringExtra("numero_planta");
-
+        actualizarTextoUsuario();
         btnHoraEntrada.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,29 +104,14 @@ public class RESERVA_PLAZA extends AppCompatActivity {
         });
     }
 
-    public void actualizarTexto(){
-        String miPlaza = plazaSeleccionada;
-        String miPlanta = plantaSeleccionada;
-
-        info.setText(miPlanta + " "+ miPlaza);
-
-    }
     public void atras(View view){
         Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
         i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
 
-    public String obtenerPlazaMODIFICACION(String idBoton){
-        plazaSeleccionada = idBoton.substring(idBoton.length() - 4, idBoton.length() - 2);
-        plazaSeleccionada = String.format("%02d", Integer.parseInt(plazaSeleccionada));
-        return plazaSeleccionada;
-    }
-
-
-    public String obtenerPlantaMODIFICACION(String idBoton) {
-        plantaSeleccionada = idBoton.substring(idBoton.length() - 1);
-        return plantaSeleccionada;
+    public void actualizarTextoUsuario(){
+        info.setText("Planta " + plantaSeleccionada + ", Plaza "+ plazaSeleccionada);
     }
 
     private void cargarMatriculas(String numDocumento) {

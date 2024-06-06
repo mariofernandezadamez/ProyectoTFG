@@ -77,7 +77,7 @@ public class PARKING_ADMIN_P3 extends AppCompatActivity {
             if (plazaButton != null) {
                 if ("1".equals(entry.getValue())) {
                     plazaButton.setBackgroundColor(Color.GREEN);
-                    plazaButton.setClickable(true);
+                    plazaButton.setClickable(false);
                 } else {
                     plazaButton.setBackgroundColor(Color.RED);
                     plazaButton.setClickable(true);
@@ -124,6 +124,7 @@ public class PARKING_ADMIN_P3 extends AppCompatActivity {
         return plaza;
     }
 
+
     public String obtenerPlanta(View view) {
         int id = view.getId();
         String nombreRecurso = getResources().getResourceEntryName(id);
@@ -142,7 +143,7 @@ public class PARKING_ADMIN_P3 extends AppCompatActivity {
     public void rellenar_plaza3(View view) {
         String plazaSeleccionada = obtenerPlaza(view);
         String plantaSeleccionada = obtenerPlanta(view);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/mostrarDatosReserva.php?plaza=" + plazaSeleccionada + "&numero_planta=" + plantaSeleccionada, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.73.1/bbdd_tfg/mostrarDatosReserva.php?plaza=" + plazaSeleccionada + "&numero_planta=" + plantaSeleccionada, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 

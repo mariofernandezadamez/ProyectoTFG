@@ -46,6 +46,7 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
     String horaSalidaSeleccionada;
     EditText coche;
     String idBoton = "";
+    Button btnCancelar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
         usuarioTexto = findViewById(R.id.txtUsuario);
         costeTotal = findViewById(R.id.PlainTextCosteTotal);
         coche = findViewById(R.id.PlainTextCOCHE);
+        btnCancelar = findViewById(R.id.BtnCancelar);
         cerrarsesion = findViewById(R.id.btrnatrasmodificacion);
 
 
@@ -99,6 +101,10 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
             }
         });
     }
+    public void cancelar(View view){
+        Intent i = new Intent(this, PARKING_ADMIN_P1.class);
+        startActivity(i);
+    }
 
     public void atrasmodi(View view){
         Intent i = new Intent(this, PARKING_ADMIN_P1.class);
@@ -107,13 +113,14 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
     }
 
     public void actualizarTexto(){
-        String miPlaza = obtenerPlazaMODIFICACION(idBoton);
-        String miPlanta = obtenerPlantaMODIFICACION(idBoton);
+        //String miPlaza = obtenerPlazaMODIFICACION(idBoton);
+        //String miPlanta = obtenerPlantaMODIFICACION(idBoton);
 
-        info.setText("Planta " + miPlanta + ", Plaza "+ miPlaza);
+        info.setText("Planta " + planta + ", Plaza "+ plaza);
 
     }
 
+    /*
     public String obtenerPlazaMODIFICACION(String idBoton){
         plazaSeleccionada = idBoton.substring(idBoton.length() - 4, idBoton.length() - 2);
         plazaSeleccionada = String.format("%02d", Integer.parseInt(plazaSeleccionada));
@@ -126,6 +133,7 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
         return plantaSeleccionada;
     }
 
+     */
     private void mostrarTimePicker(final boolean esHoraEntrada) {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -153,8 +161,8 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
 
     public void modificacion_reserva(View view){
 
-        String plazaSeleccionada = obtenerPlazaMODIFICACION(idBoton);
-        String plantaSeleccionada = obtenerPlantaMODIFICACION(idBoton);
+        //String plazaSeleccionada = obtenerPlazaMODIFICACION(idBoton);
+        //String plantaSeleccionada = obtenerPlantaMODIFICACION(idBoton);
 
         String Usuario = usuarioTexto.getText().toString();
         String EntradaHora = horaEntrada.getText().toString();
@@ -165,7 +173,7 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
         System.out.println("DNI:"+Usuario+ " Hora de Entrada:"+EntradaHora+ " Hora de salida:"+ EntradaSalida+"Matricula" + matricula + " Coste total:"+ CosteTotal);
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/ModificarReserva.php?plaza=" + plazaSeleccionada + "&numero_planta=" + plantaSeleccionada, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.73.1/bbdd_tfg/ModificarReserva.php?plaza=" + plaza + "&numero_planta=" + planta, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("Reserva modificada")){

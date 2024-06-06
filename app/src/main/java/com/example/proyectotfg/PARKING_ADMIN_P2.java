@@ -81,10 +81,10 @@ public class PARKING_ADMIN_P2 extends AppCompatActivity {
             if (plazaButton != null) {
                 if ("1".equals(entry.getValue())) {
                     plazaButton.setBackgroundColor(Color.GREEN);
-                    plazaButton.setClickable(true);
+                    plazaButton.setClickable(false);
                 } else {
                     plazaButton.setBackgroundColor(Color.RED);
-                    plazaButton.setClickable(false);
+                    plazaButton.setClickable(true);
                 }
             } else {
                 Log.e("UI Update", "Button ID not found for plaza number: " + numPlaza);
