@@ -145,7 +145,7 @@ public class PARKING_ADMIN_P2 extends AppCompatActivity {
     public void rellenar_plaza2(View view) {
         String plazaSeleccionada = obtenerPlaza(view);
         String plantaSeleccionada = obtenerPlanta(view);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.73.1/bbdd_tfg/mostrarDatosReserva.php?plaza=" + plazaSeleccionada + "&numero_planta=" + plantaSeleccionada, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/mostrarDatosReserva.php?plaza=" + plazaSeleccionada + "&numero_planta=" + plantaSeleccionada, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 

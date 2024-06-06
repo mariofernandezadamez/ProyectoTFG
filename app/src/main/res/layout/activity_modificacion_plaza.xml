@@ -30,7 +30,7 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintHorizontal_bias="0.669"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.026" />
@@ -236,17 +236,18 @@
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btnatras2"
-        android:layout_width="43dp"
-        android:layout_height="41dp"
+    <Button
+        android:id="@+id/btrnatrasmodificacion"
+        android:layout_width="57dp"
+        android:layout_height="49dp"
         android:background="#00FFFFFF"
+        android:onClick="atrasmodi"
+        app:icon="@drawable/hacia_atras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.026"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.016" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

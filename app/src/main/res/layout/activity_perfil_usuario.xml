@@ -170,34 +170,34 @@
             android:ems="10"
             android:inputType="text" />
 
-        <Button
-            android:id="@+id/button6"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="#000000"
-            android:onClick="btn_modificar"
-            android:text="Actualizar perfil" />
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#000000"
+                android:onClick="btn_modificar"
+                android:text="Actualizar perfil" />
+
+            <Button
+                android:id="@+id/btncerrarsesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#000000"
+                android:onClick="cerra_sesion"
+                android:text="Cerrar sesión" />
+        </LinearLayout>
 
     </LinearLayout>
-
-    <ImageButton
-        android:id="@+id/btnatras3"
-        android:layout_width="50dp"
-        android:layout_height="49dp"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="false"
-        android:layout_marginStart="11dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="299dp"
-        android:layout_marginBottom="578dp"
-        android:background="#00FFFFFF"
-        android:onClick="atrass"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <TextView
         android:id="@+id/textView6"
@@ -227,5 +227,21 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp" />
+
+    <Button
+        android:id="@+id/btnatrasperfil"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="299dp"
+        android:layout_marginBottom="577dp"
+        android:background="#00FFFFFF"
+        android:onClick="atrass"
+        app:icon="@drawable/hacia_atras" />
 
 </RelativeLayout>

@@ -93,7 +93,7 @@ public class GRAF_PASTEL extends AppCompatActivity {
     }
 
     public void rellenar_grafico() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.73.1/bbdd_tfg/grafico_pastel.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/grafico_pastel.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 

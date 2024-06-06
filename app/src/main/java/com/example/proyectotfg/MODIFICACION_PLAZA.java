@@ -30,7 +30,7 @@ import java.util.Map;
 
 public class MODIFICACION_PLAZA extends AppCompatActivity {
 
-
+    Button cerrarsesion;
     TextView info;
     Button BtnHoraEntrada;
     Button BtnHoraSalida;
@@ -60,6 +60,7 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
         usuarioTexto = findViewById(R.id.txtUsuario);
         costeTotal = findViewById(R.id.PlainTextCosteTotal);
         coche = findViewById(R.id.PlainTextCOCHE);
+        cerrarsesion = findViewById(R.id.btrnatrasmodificacion);
 
 
         Intent intente = getIntent();
@@ -97,6 +98,12 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
                 mostrarTimePicker(false);
             }
         });
+    }
+
+    public void atrasmodi(View view){
+        Intent i = new Intent(this, PARKING_ADMIN_P1.class);
+        //i.putExtra("num_documento", (CharSequence) usuarioTexto);
+        startActivity(i);
     }
 
     public void actualizarTexto(){
@@ -158,7 +165,7 @@ public class MODIFICACION_PLAZA extends AppCompatActivity {
         System.out.println("DNI:"+Usuario+ " Hora de Entrada:"+EntradaHora+ " Hora de salida:"+ EntradaSalida+"Matricula" + matricula + " Coste total:"+ CosteTotal);
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.73.1/bbdd_tfg/ModificarReserva.php?plaza=" + plazaSeleccionada + "&numero_planta=" + plantaSeleccionada, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/ModificarReserva.php?plaza=" + plazaSeleccionada + "&numero_planta=" + plantaSeleccionada, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("Reserva modificada")){

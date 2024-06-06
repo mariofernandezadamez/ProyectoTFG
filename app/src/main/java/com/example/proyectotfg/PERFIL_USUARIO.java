@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PERFIL_USUARIO extends AppCompatActivity {
-    Button btnatras;
+    Button btnatras, btncerrarsesion;
     TextView txt_dni;
     EditText etxt_usuario;
     EditText etxt_contraseña;
@@ -43,6 +43,8 @@ public class PERFIL_USUARIO extends AppCompatActivity {
         etxt_contraseña = findViewById(R.id.PEEditTextContraseña);
         etxt_matricula_principal = findViewById(R.id.PEEditTextMatriculaprin);
         Etxt_matricula_secundaria = findViewById(R.id.PEEditTextMatriculasecun1);
+        btnatras = findViewById(R.id.btnatrasperfil);
+        btncerrarsesion = findViewById(R.id.btncerrarsesion);
 
         Intent intent1 = getIntent();
         if (intent1.hasExtra("num_documento")) {
@@ -59,6 +61,12 @@ public class PERFIL_USUARIO extends AppCompatActivity {
             Etxt_matricula_secundaria.setText(matricula_secundaria);
 
         }
+    }
+
+    public void cerra_sesion(View view){
+        Intent i = new Intent(this, INICIO_SESION.class);
+        Toast.makeText(this, "Sesión cerrada correctamente", Toast.LENGTH_SHORT).show();
+        startActivity(i);
     }
 
     public void atrass(View view) {
@@ -124,7 +132,7 @@ public class PERFIL_USUARIO extends AppCompatActivity {
 
         System.out.println("Num_doc:"+num_documentos_mod+ " usuario:"+usuario_mod+ " contra:"+ contrasena_mod+ " mat_1:"+ matricula_1_mod+ " mat_2:"+matricula_2_mod );
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.73.1/bbdd_tfg/modificacion_perfil.php?num_documento=" + num_documentos_mod, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/modificacion_perfil.php?num_documento=" + num_documentos_mod, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("Usuario modificado")){

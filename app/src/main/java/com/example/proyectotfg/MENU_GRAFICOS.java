@@ -28,6 +28,10 @@ public class MENU_GRAFICOS extends AppCompatActivity {
         Intent i = new Intent(this, GRAF_LINEAL.class);
         startActivity(i);
     }
+    public void atrasgraf(View view){
+        Intent i = new Intent(this, ADMIN_HOME.class);
+        startActivity(i);
+    }
 }
 
 
