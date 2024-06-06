@@ -52,7 +52,7 @@ public class PARKING_ADMIN_P2 extends AppCompatActivity {
         btn_disponible14 = findViewById(R.id.adminBTNdispo14P2);
         btn_disponible15 = findViewById(R.id.adminBTNdispo15P2);
         btn_disponible16 = findViewById(R.id.adminBTNdispo16P2);
-        pkUtil.obtenerEstadoPlazaPlantaAdmin2(this,"1",this);
+        pkUtil.obtenerEstadoPlazaPlantaAdmin2(this,"2",this);
     }
     public void cambioPestaña2_P1(View view){
         Intent i = new Intent(this, PARKING_ADMIN_P1.class);
