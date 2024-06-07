@@ -107,7 +107,7 @@ public class GRAF_BARRAS_PLANTAS extends AppCompatActivity {
 
     public void rellenar_grafico_barras_plantas(){
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/grafico_barras_plantas.php?num_planta=1", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bbdd_tfg/grafico_barras_plantas.php?num_planta=1", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
