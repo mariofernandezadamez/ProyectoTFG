@@ -68,18 +68,10 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
         i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
-
-    /*
-    public void botones(View view){
-        Intent i = new Intent(this, MODIFICACION_PLAZA.class);
-        i.putExtra("num_documento", num_documento);
-        obtenerPlazaPlanta(view);
-        i.putExtra("plaza", plaza);
-        i.putExtra("numero_planta", planta);
+    public void atrasadmin(View view){
+        Intent i = new Intent(this, ADMIN_HOME.class);
         startActivity(i);
     }
-    050
-     */
 
     public void updateUIWithPlazas(Map<String, String> plazasDisponibles) {
         for (Map.Entry<String, String> entry : plazasDisponibles.entrySet()) {
@@ -124,7 +116,6 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
         plaza = nombreRecurso.substring(nombreRecurso.length() - 4, nombreRecurso.length() - 2);
         planta = nombreRecurso.substring(nombreRecurso.length() - 1);
 
-        // Formatear el número de plaza para asegurarse de que tenga dos dígitos
         plaza = String.format("%02d", Integer.parseInt(plaza));
 
         System.out.println("Plaza: " + plaza + ", Planta: " + planta);
@@ -139,7 +130,6 @@ public class PARKING_ADMIN_P1 extends AppCompatActivity {
         plaza = nombreRecurso.substring(nombreRecurso.length() - 4, nombreRecurso.length() - 2);
         planta = nombreRecurso.substring(nombreRecurso.length() - 1);
 
-        // Formatear el número de plaza para asegurarse de que tenga dos dígitos
         plaza = String.format("%02d", Integer.parseInt(plaza));
 
         System.out.println("Plaza: " + plaza + ", Planta: " + planta);

@@ -2,7 +2,9 @@ package com.example.proyectotfg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -41,6 +43,11 @@ public class GRAF_BARRAS_PLANTAS extends AppCompatActivity {
         grafico_barras_plantas();
         rellenar_grafico_barras_plantas();
 
+    }
+
+    public void atrasgraf2(View view){
+        Intent i = new Intent(this, MENU_GRAFICOS.class);
+        startActivity(i);
     }
 
     public void grafico_barras_plantas(){

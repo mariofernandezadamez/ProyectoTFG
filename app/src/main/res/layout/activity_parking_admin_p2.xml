@@ -22,8 +22,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="359dp"
-        android:layout_height="82dp"
+        android:layout_width="360dp"
+        android:layout_height="71dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/view7"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,10 +33,19 @@
         app:layout_constraintVertical_bias="0.0">
 
         <Button
+            android:id="@+id/button3"
+            android:layout_width="83dp"
+            android:layout_height="61dp"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:onClick="atrasadmin2"
+            app:icon="@drawable/hacia_atras" />
+
+        <Button
             android:id="@+id/AdminPlanta1P3"
             android:layout_width="96dp"
             android:layout_height="67dp"
-            android:background="@drawable/ovalo"
+            android:backgroundTint="#2B3C9C"
             android:onClick="cambioPestaña2_P1"
             android:text="Planta 1"
             tools:layout_editor_absoluteX="76dp"
@@ -46,7 +55,7 @@
             android:id="@+id/AdminPlanta2P3"
             android:layout_width="94dp"
             android:layout_height="67dp"
-            android:background="@drawable/ovalo"
+            android:backgroundTint="#2B3C9C"
             android:text="Planta 2"
             tools:layout_editor_absoluteX="171dp"
             tools:layout_editor_absoluteY="19dp" />
@@ -55,7 +64,7 @@
             android:id="@+id/AdminPlanta3P3"
             android:layout_width="99dp"
             android:layout_height="70dp"
-            android:background="@drawable/ovalo"
+            android:backgroundTint="#2B3C9C"
             android:onClick="cambioPestaña2_P3"
             android:text="Planta 3"
             tools:layout_editor_absoluteX="265dp"

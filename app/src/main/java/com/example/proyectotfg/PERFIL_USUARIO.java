@@ -32,6 +32,7 @@ public class PERFIL_USUARIO extends AppCompatActivity {
     EditText etxt_contraseña;
     EditText etxt_matricula_principal;
     EditText Etxt_matricula_secundaria;
+    String num_documento;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,7 +49,7 @@ public class PERFIL_USUARIO extends AppCompatActivity {
 
         Intent intent1 = getIntent();
         if (intent1.hasExtra("num_documento")) {
-            String num_documento = intent1.getStringExtra("num_documento");
+            num_documento = intent1.getStringExtra("num_documento");
             String usuario = intent1.getStringExtra("usuario");
             String contrasena = intent1.getStringExtra("contrasena");
             String matricula_principal = intent1.getStringExtra("matricula_principal");
@@ -71,6 +72,7 @@ public class PERFIL_USUARIO extends AppCompatActivity {
 
     public void atrass(View view) {
         Intent i = new Intent(this, PARKING_USUARIOS_P1.class);
+        i.putExtra("num_documento", num_documento);
         startActivity(i);
     }
 

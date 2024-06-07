@@ -23,6 +23,7 @@
         android:id="@+id/ISTextAparcafacil5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/black_ops_one"
         android:text="APARCAFACIL"
@@ -79,5 +80,15 @@
         android:layout_marginTop="500dp"
         android:onClick="cambiar_graf_lineal"
         android:text="Grafica de 1h a 12h" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"
+        android:background="#00FFFFFF"
+        android:onClick="atrasgraf4"
+        app:icon="@drawable/hacia_atras" />
 
 </RelativeLayout>

@@ -62,17 +62,10 @@ public class PARKING_ADMIN_P2 extends AppCompatActivity {
         Intent i = new Intent(this, PARKING_ADMIN_P3.class);
         startActivity(i);
     }
-
-    /*
-    public void botones2(View view){
-        Intent i = new Intent(this, MODIFICACION_PLAZA.class);
-        obtenerPlazaPlanta(view);
-        i.putExtra("plaza", plaza);
-        i.putExtra("numero_planta", planta);
+    public void atrasadmin2(View view){
+        Intent i = new Intent(this, ADMIN_HOME.class);
         startActivity(i);
     }
-
-     */
 
     public void updateUIWithPlazas(Map<String, String> plazasDisponibles) {
         for (Map.Entry<String, String> entry : plazasDisponibles.entrySet()) {

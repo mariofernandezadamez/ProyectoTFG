@@ -41,7 +41,10 @@ public class GRAF_LINEAL_2 extends AppCompatActivity {
 
         rellenar_grafico_linear_2();
     }
-
+    public void atrasgraf4(View view){
+        Intent i = new Intent(this, MENU_GRAFICOS.class);
+        startActivity(i);
+    }
     public void grafico_lineal_2(){
         // COLORES PARA APLICAR
         int color_negro = getResources().getColor(R.color.black);

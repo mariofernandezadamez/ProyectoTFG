@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class ADMIN_HOME extends AppCompatActivity {
     ImageButton imv;
@@ -28,6 +29,7 @@ public class ADMIN_HOME extends AppCompatActivity {
     }
     public void cerrarsesion(View view){
         Intent i = new Intent(this, INICIO_SESION.class);
+        Toast.makeText(this, "Se ha cerrado sesión correctamente", Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 }

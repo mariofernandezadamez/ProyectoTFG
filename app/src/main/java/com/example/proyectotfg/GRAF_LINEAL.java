@@ -49,7 +49,10 @@ public class GRAF_LINEAL extends AppCompatActivity {
         // Mover la llamada a grafico_lineal_1() dentro de onResponse
         rellenar_grafico_linear();
     }
-
+    public void atrasgraf3(View view){
+        Intent i = new Intent(this, MENU_GRAFICOS.class);
+        startActivity(i);
+    }
     public void grafico_lineal_1(){
         // COLORES PARA APLICAR
         int color_negro = getResources().getColor(R.color.black);

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="atrasadmin3"
     tools:context=".PARKING_ADMIN_P3">
 
     <View
@@ -22,15 +23,23 @@
 
     <LinearLayout
         android:id="@+id/linearLayout4"
-        android:layout_width="359dp"
-        android:layout_height="82dp"
+        android:layout_width="357dp"
+        android:layout_height="72dp"
         android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="83dp"
+            android:layout_height="61dp"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            app:icon="@drawable/hacia_atras" />
 
         <Button
             android:id="@+id/AdminPlanta1P3"
             android:layout_width="96dp"
             android:layout_height="67dp"
-            android:background="@drawable/ovalo"
+            android:backgroundTint="#2B3C9C"
             android:onClick="cambioPestaña3_P1"
             android:text="Planta 1"
             tools:layout_editor_absoluteX="76dp"
@@ -40,7 +49,7 @@
             android:id="@+id/AdminPlanta2P3"
             android:layout_width="94dp"
             android:layout_height="67dp"
-            android:background="@drawable/ovalo"
+            android:backgroundTint="#2B3C9C"
             android:onClick="cambioPestaña3_P2"
             android:text="Planta 2"
             tools:layout_editor_absoluteX="171dp"
@@ -50,7 +59,7 @@
             android:id="@+id/AdminPlanta3P3"
             android:layout_width="99dp"
             android:layout_height="70dp"
-            android:background="@drawable/ovalo"
+            android:backgroundTint="#2B3C9C"
             android:text="Planta 3"
             tools:layout_editor_absoluteX="265dp"
             tools:layout_editor_absoluteY="19dp" />
@@ -288,8 +297,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.144" />
 </androidx.constraintlayout.widget.ConstraintLayout>

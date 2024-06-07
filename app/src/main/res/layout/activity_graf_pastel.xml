@@ -23,6 +23,7 @@
         android:id="@+id/ISTextAparcafacil2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="30sp"
         android:fontFamily="@font/black_ops_one"
         android:text="APARCAFACIL"
@@ -52,4 +53,14 @@
         android:layout_height="match_parent"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"
+        android:background="#00FFFFFF"
+        android:onClick="atrasgraf1"
+        app:icon="@drawable/hacia_atras" />
 </RelativeLayout>

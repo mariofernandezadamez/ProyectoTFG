@@ -2,7 +2,9 @@ package com.example.proyectotfg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
@@ -37,7 +39,10 @@ public class GRAF_PASTEL extends AppCompatActivity {
         grafico_pastel();
         rellenar_grafico();
     }
-
+    public void atrasgraf1(View view){
+        Intent i = new Intent(this, MENU_GRAFICOS.class);
+        startActivity(i);
+    }
     public void grafico_pastel(){
 
         //CREAMOS LOS CAMPOS DEL GRÁFICO
