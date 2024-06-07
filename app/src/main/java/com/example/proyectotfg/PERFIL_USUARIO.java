@@ -87,7 +87,6 @@ public class PERFIL_USUARIO extends AppCompatActivity {
             Toast.makeText(this, "Todos lo campos son validos", Toast.LENGTH_SHORT).show();
             modificacion_usuario();
         }
-
     }
 
     public boolean comp_campos_vacios(){

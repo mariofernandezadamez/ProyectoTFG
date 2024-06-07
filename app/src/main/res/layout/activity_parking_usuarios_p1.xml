@@ -36,14 +36,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="perfil"
-            android:text="Button" />
+            android:background="#00FFFFFF"
+            android:drawableBottom="@drawable/usuario__4_32px"
+            android:onClick="perfil" />
 
         <Button
             android:id="@+id/Usuarios_P1_p1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#2B3C9C"
             android:onClick="planta1"
             android:text="Planta 1" />
 
@@ -52,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#FF2B3C9C"
             android:onClick="planta2"
             android:text="Planta 2" />
 
@@ -60,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="#FF2B3C9C"
             android:onClick="planta3"
             android:text="Planta 3" />
 
