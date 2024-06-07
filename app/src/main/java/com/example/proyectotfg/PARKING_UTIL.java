@@ -22,7 +22,7 @@ public class PARKING_UTIL {
     Map<String, String> plazasDisponibles = new HashMap<>();
 
     public void obtenerEstadoPlazaPlanta(Context context, String numPlanta, final PARKING_USUARIOS_P1 activity) {
-        String url = "http://192.168.1.41/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
+        String url = "http://192.168.227.1/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -49,7 +49,7 @@ public class PARKING_UTIL {
         requestQueue.add(request);
     }
     public void obtenerEstadoPlazaPlanta2(Context context, String numPlanta, final PARKING_USUARIOS_P2 activity) {
-        String url = "http://192.168.1.41/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
+        String url = "http://192.168.227.1/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -76,7 +76,7 @@ public class PARKING_UTIL {
         requestQueue.add(request);
     }
     public void obtenerEstadoPlazaPlanta3(Context context, String numPlanta, final PARKING_USUARIOS_P3 activity) {
-        String url = "http://192.168.1.41/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
+        String url = "http://192.168.227.1/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -104,7 +104,7 @@ public class PARKING_UTIL {
     }
 
     public void obtenerEstadoPlazaPlantaAdmin1(Context context, String numPlanta, final PARKING_ADMIN_P1 activity) {
-        String url = "http://192.168.1.41/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
+        String url = "http://192.168.227.1/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -132,7 +132,7 @@ public class PARKING_UTIL {
     }
 
     public void obtenerEstadoPlazaPlantaAdmin2(Context context, String numPlanta, final PARKING_ADMIN_P2 activity) {
-        String url = "http://192.168.1.41/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
+        String url = "http://192.168.227.1/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -160,7 +160,7 @@ public class PARKING_UTIL {
     }
 
     public void obtenerEstadoPlazaPlantaAdmin3(Context context, String numPlanta, final PARKING_ADMIN_P3 activity) {
-        String url = "http://192.168.1.41/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
+        String url = "http://192.168.227.1/bbdd_tfg/obtener_plazas.php?numero_planta=" + numPlanta;
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

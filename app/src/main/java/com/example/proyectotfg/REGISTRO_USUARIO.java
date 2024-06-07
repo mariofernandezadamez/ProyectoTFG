@@ -133,7 +133,7 @@ public class REGISTRO_USUARIO extends AppCompatActivity {
     }
 
     private void ejecutarServicio(){
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/insertado_registro.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/insertado_registro.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("El usuario ya existe en la BBDD")) {

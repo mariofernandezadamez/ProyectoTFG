@@ -107,7 +107,7 @@ public class GRAF_LINEAL extends AppCompatActivity {
     }
 
     public void rellenar_grafico_linear() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bbdd_tfg/grafico_lineal_1.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/grafico_lineal_1.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
