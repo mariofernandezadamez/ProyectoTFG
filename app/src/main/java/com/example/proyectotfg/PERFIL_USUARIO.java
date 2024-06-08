@@ -81,9 +81,12 @@ public class PERFIL_USUARIO extends AppCompatActivity {
             Toast.makeText(this, "Completa todos los campos obligatorios", Toast.LENGTH_SHORT).show();
         } else if (!comp_matricula(etxt_matricula_principal.getText().toString())) {
             Toast.makeText(this, "Formato de la Matrícula principal invalido", Toast.LENGTH_SHORT).show();
-        } else if (etxt_matricula_principal.getText().toString().isEmpty()) {
+        } else if (!(etxt_matricula_principal.getText().toString().isEmpty())) {
             if (!comp_matricula(Etxt_matricula_secundaria.getText().toString())) {
                 Toast.makeText(this, "Formato de la Matrícula secundaria invalido", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Todos lo campos son validos", Toast.LENGTH_SHORT).show();
+                modificacion_usuario();
             }
         }else {
             Toast.makeText(this, "Todos lo campos son validos", Toast.LENGTH_SHORT).show();
@@ -114,9 +117,14 @@ public class PERFIL_USUARIO extends AppCompatActivity {
         }
 
         String letras_matricula = matricula.substring(4,7);
-        if ((letras_matricula.contains("a") || letras_matricula.contains("e") || letras_matricula.contains("i") || letras_matricula.contains("o") || letras_matricula.contains("u") ||
+        String letra_matricula_1 = letras_matricula.substring(0,1);
+        String letra_matricula_2 = letras_matricula.substring(1,2);
+        String letra_matricula_3 = letras_matricula.substring(2,3);
+        System.out.println("L1: "+letra_matricula_1+ " L2: "+ letra_matricula_2+ " L3: "+ letra_matricula_3);
+        if ((letras_matricula.contains("A") || letras_matricula.contains("E") || letras_matricula.contains("I") || letras_matricula.contains("O") || letras_matricula.contains("U") ||
                 letras_matricula.contains("1") || letras_matricula.contains("2") || letras_matricula.contains("3") || letras_matricula.contains("4") || letras_matricula.contains("5") ||
-                letras_matricula.contains("6") || letras_matricula.contains("7") || letras_matricula.contains("8") || letras_matricula.contains("9") || letras_matricula.contains("0")) || letras_matricula.equals(letras_matricula.toLowerCase())){
+                letras_matricula.contains("6") || letras_matricula.contains("7") || letras_matricula.contains("8") || letras_matricula.contains("9") || letras_matricula.contains("0")) ||
+                letra_matricula_1.contains(letra_matricula_1.toLowerCase()) || letra_matricula_2.contains(letra_matricula_2.toLowerCase()) || letra_matricula_3.contains(letra_matricula_3.toLowerCase()) ){
             return false;
         }
 
@@ -133,7 +141,7 @@ public class PERFIL_USUARIO extends AppCompatActivity {
 
         System.out.println("Num_doc:"+num_documentos_mod+ " usuario:"+usuario_mod+ " contra:"+ contrasena_mod+ " mat_1:"+ matricula_1_mod+ " mat_2:"+matricula_2_mod );
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.227.1/bbdd_tfg/modificacion_perfil.php?num_documento=" + num_documentos_mod, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.41/bbdd_tfg/modificacion_perfil.php?num_documento=" + num_documentos_mod, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.contains("Usuario modificado")){

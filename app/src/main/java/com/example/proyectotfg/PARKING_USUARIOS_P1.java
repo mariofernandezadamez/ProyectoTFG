@@ -100,7 +100,7 @@ public class PARKING_USUARIOS_P1 extends AppCompatActivity {
 
 
     public void rellenar_perfil() {
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bbdd_tfg/mostrar_datos.php?num_documento=" + num_documento, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
 
