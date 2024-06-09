@@ -110,12 +110,13 @@ public class GRAF_LINEAL extends AppCompatActivity {
     }
 
     public void rellenar_grafico_linear() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/grafico_lineal_1.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bbdd_tfg/grafico_lineal_1.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 String[] partes_conjuntas = response.split("&");
                 List<String> horas = new ArrayList<>();
+                System.out.println("Partes conjuntas"+ partes_conjuntas);
                 // Empieza desde el 1 porque el 0 es "Conexión exitosa" y hace de 2 en dos porque tiene que ser impar
                 for (int i = 1; i < partes_conjuntas.length; i += 2) {
                     horas.add(partes_conjuntas[i]);

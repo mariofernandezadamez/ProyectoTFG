@@ -98,12 +98,12 @@ public class GRAF_PASTEL extends AppCompatActivity {
     }
 
     public void rellenar_grafico() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.227.1/bbdd_tfg/grafico_pastel.php", new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "http://192.168.1.41/bbdd_tfg/grafico_pastel.php", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
                 String[] partes_conjuntas = response.split("\\:");
-
+                System.out.println("Partes conjuntas"+ partes_conjuntas);
                 plazasVacias = Integer.parseInt(partes_conjuntas[1]);
                 System.out.println("Las plazas vacias: "+plazasVacias);
                 plazasOcupadas = Integer.parseInt(partes_conjuntas[3]);
